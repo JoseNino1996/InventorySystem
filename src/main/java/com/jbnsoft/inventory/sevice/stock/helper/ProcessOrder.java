@@ -18,6 +18,8 @@ public abstract class ProcessOrder {
      protected ProductInventory checkIfExist(Long id) throws Exception {
       List<ProductInventory> productInventoryList = iProductInventoryService.getListOfProductInventory();
       ProductInventory foundProductInventory =null;
+
+      
       for(ProductInventory productInventory :  productInventoryList) {
           if (productInventory.getId() == id) {
               foundProductInventory = productInventory;

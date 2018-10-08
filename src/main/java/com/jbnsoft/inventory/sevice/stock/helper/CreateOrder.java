@@ -14,6 +14,8 @@ public class CreateOrder extends ProcessOrder {
         List<ProductInventory> productInventoryList = new ArrayList<>();
         double subtotal = 0;
         ProductInventory productInventory;
+
+
         for(Map.Entry<Long, Long> entry : productIdAndOrderedQty.entrySet()) {
             productInventory = checkIfExist(entry.getKey());
             productInventory.setQuantity(productInventory.getQuantity() - entry.getValue());
@@ -21,6 +23,8 @@ public class CreateOrder extends ProcessOrder {
             productInventoryList.add(productInventory);
             subtotal += entry.getValue() * productInventory.getPrice();
         }
+
+
         iProductInventoryService.saveAll(productInventoryList);
         return subtotal;
     }

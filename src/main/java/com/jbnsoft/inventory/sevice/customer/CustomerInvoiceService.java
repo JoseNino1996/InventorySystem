@@ -35,6 +35,10 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
 
        customerInvoice.setSubtotal(mapProductIdandOrderQuantity(productOrderList,createOrder));
 
+
+       if(!checkCustomerPayment(customerInvoice)) {
+            throw new Exception("Insufficient payment!");
+       }
         return customerInvoiceRepository.save(customerInvoice);
     }
 
@@ -87,5 +91,14 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
             listOfCustomersInvoice.add(customerInvoice);
         }
         return listOfCustomersInvoice;
+    }
+
+    @Override
+    public boolean checkCustomerPayment(CustomerInvoice customerInvoice) {
+        if(customerInvoice.getPayment() >= customerInvoice.getSubtotal()) {
+            customerInvoice.setChange(customerInvoice.getPayment() - customerInvoice.getSubtotal());
+            return true;
+        }
+        return false;
     }
 }

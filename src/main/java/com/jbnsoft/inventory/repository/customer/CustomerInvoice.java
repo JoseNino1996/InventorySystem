@@ -11,9 +11,12 @@ public class CustomerInvoice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private double subtotal;
     private Date date;
+
+    private double payment;
+
+    private double change;
 
 
     @OneToOne(fetch = FetchType.EAGER)
@@ -65,6 +68,23 @@ public class CustomerInvoice {
 
     public void setProductOrderList(List<ProductOrder> productOrderList) {
         this.productOrderList = productOrderList;
+    }
+
+
+    public double getPayment() {
+        return payment;
+    }
+
+    public void setPayment(double payment) {
+        this.payment = payment;
+    }
+
+    public double getChange() {
+        return change;
+    }
+
+    public void setChange(double change) {
+        this.change = change;
     }
 
     @Override

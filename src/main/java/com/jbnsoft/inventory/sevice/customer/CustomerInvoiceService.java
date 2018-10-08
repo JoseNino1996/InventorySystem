@@ -37,7 +37,7 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
 
 
        if(!checkCustomerPayment(customerInvoice)) {
-            throw new Exception("Insufficient payment!");
+            throw new Exception("Insufficient payment! Subtotal is: " + customerInvoice.getSubtotal() );
        }
         return customerInvoiceRepository.save(customerInvoice);
     }
@@ -60,9 +60,13 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
         CustomerInvoice storedCustomerInvoice =findById(id);
         List<ProductOrder> currentOrderList = storedCustomerInvoice.getProductOrderList();
 
+
+
         mapProductIdandOrderQuantity(currentOrderList, deleteOrder);
         List<ProductOrder> newOrderList = customerInvoice.getProductOrderList();
         customerInvoice.setSubtotal(mapProductIdandOrderQuantity(newOrderList,createOrder));
+
+        checkCustomerPayment(storedCustomerInvoice);
         customerInvoice.setId(storedCustomerInvoice.getId());
         return customerInvoiceRepository.save(customerInvoice);
     }

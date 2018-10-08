@@ -16,19 +16,27 @@ public abstract class ProcessOrder {
 
 
      protected ProductInventory checkIfExist(Long id) throws Exception {
-      List<ProductInventory> productInventoryList = iProductInventoryService.getListOfProductInventory();
-      ProductInventory foundProductInventory =null;
+          List<ProductInventory> productInventoryList = iProductInventoryService.getListOfProductInventory();
+          ProductInventory foundProductInventory =null;
 
-      
-      for(ProductInventory productInventory :  productInventoryList) {
-          if (productInventory.getId() == id) {
-              foundProductInventory = productInventory;
+
+          for(ProductInventory productInventory :  productInventoryList) {
+              if (productInventory.getId() == id) {
+                  foundProductInventory = productInventory;
+              }
+          }
+          if(foundProductInventory != null) {
+              return foundProductInventory;
+          } else {
+              throw new Exception("Product is not available");
           }
       }
-      if(foundProductInventory != null) {
-          return foundProductInventory;
-      } else {
-          throw new Exception("Product is not available");
+
+      public boolean checkProductAvailability(long orderedQuantity, long storedQuantity) {
+         if(orderedQuantity > storedQuantity) {
+            return  false;
+         }
+         return  true;
       }
-  }
+
 }

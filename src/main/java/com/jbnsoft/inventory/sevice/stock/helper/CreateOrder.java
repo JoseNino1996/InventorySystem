@@ -18,6 +18,10 @@ public class CreateOrder extends ProcessOrder {
 
         for(Map.Entry<Long, Long> entry : productIdAndOrderedQty.entrySet()) {
             productInventory = checkIfExist(entry.getKey());
+
+            if(!checkProductAvailability(entry.getValue(),productInventory.getQuantity())) {
+                throw new Exception("Insufficient product quantity! stored product:" + productInventory.getQuantity() );
+            }
             productInventory.setQuantity(productInventory.getQuantity() - entry.getValue());
 
             productInventoryList.add(productInventory);

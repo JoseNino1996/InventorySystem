@@ -25,7 +25,9 @@ public class ProductOrderService implements  IProductOrderService {
     public ProductOrder create(ProductOrder productOrder) throws Exception {
         Map<Long, Long> productIdAndOrderQty = new HashMap<>();
         ProductInventory productInventory = productOrder.getProductInventory();
+
         productIdAndOrderQty.put(productInventory.getId(), productOrder.getOrderedQty());
+
         productInventoryService.processOrderQuantity(productIdAndOrderQty,createOrder);
         return productOrderRepository.save(productOrder);
     }
@@ -41,6 +43,7 @@ public class ProductOrderService implements  IProductOrderService {
 
     @Override
     public ProductOrder findById(Long id) {
+
         return productOrderRepository.findById(id).orElse(null  );
     }
 }

@@ -12,6 +12,6 @@ public interface ICustomerInvoiceService  {
     CustomerInvoice findById(Long id);
     List<CustomerInvoice> getListOfCustomersInvoice();
 
-    boolean checkCustomerPayment(CustomerInvoice customerInvoice);
+    boolean checkCustomerPayment(CustomerInvoice customerInvoice) ;
 
 }

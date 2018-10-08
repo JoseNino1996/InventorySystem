@@ -96,7 +96,7 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
     @Override
     public boolean checkCustomerPayment(CustomerInvoice customerInvoice) {
         if(customerInvoice.getPayment() >= customerInvoice.getSubtotal()) {
-            customerInvoice.setChange(customerInvoice.getPayment() - customerInvoice.getSubtotal());
+            customerInvoice.setPaymentChange(customerInvoice.getPayment() - customerInvoice.getSubtotal());
             return true;
         }
         return false;

@@ -16,7 +16,7 @@ public class CustomerInvoice {
 
     private double payment;
 
-    private double change;
+    private double paymentChange;
 
 
     @OneToOne(fetch = FetchType.EAGER)
@@ -27,7 +27,7 @@ public class CustomerInvoice {
     @JoinColumn(name = "customer_invoice_id")
     private List<ProductOrder> productOrderList;
     public CustomerInvoice() {
-        date = new Date();
+
     }
     public Long getId() {
         return id;
@@ -43,6 +43,9 @@ public class CustomerInvoice {
     }
 
     public Date getDate() {
+        if(this.date == null ) {
+            this.date = new Date();
+        }
         return date;
     }
 
@@ -79,12 +82,12 @@ public class CustomerInvoice {
         this.payment = payment;
     }
 
-    public double getChange() {
-        return change;
+    public double getPaymentChange() {
+        return paymentChange;
     }
 
-    public void setChange(double change) {
-        this.change = change;
+    public void setPaymentChange(double paymentChange) {
+        this.paymentChange = paymentChange;
     }
 
     @Override

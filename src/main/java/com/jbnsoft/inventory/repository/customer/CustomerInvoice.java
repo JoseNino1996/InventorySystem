@@ -11,12 +11,12 @@ public class CustomerInvoice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private double subtotal;
+    private double amountDue;
     private Date date;
 
-    private double payment;
+    private double amountTendered;
 
-    private double paymentChange;
+    private double tenderedChange;
 
 
     @OneToOne(fetch = FetchType.EAGER)
@@ -38,8 +38,8 @@ public class CustomerInvoice {
     }
 
 
-    public void setSubtotal(double subtotal) {
-        this.subtotal = subtotal;
+    public void setAmountDue(double amountDue) {
+        this.amountDue = amountDue;
     }
 
     public Date getDate() {
@@ -57,8 +57,8 @@ public class CustomerInvoice {
         return customer;
     }
 
-    public double getSubtotal() {
-        return subtotal;
+    public double getAmountDue() {
+        return amountDue;
     }
 
     public void setCustomer(Customer customer) {
@@ -74,27 +74,27 @@ public class CustomerInvoice {
     }
 
 
-    public double getPayment() {
-        return payment;
+    public double getAmountTendered() {
+        return amountTendered;
     }
 
-    public void setPayment(double payment) {
-        this.payment = payment;
+    public void setAmountTendered(double amountTendered) {
+        this.amountTendered = amountTendered;
     }
 
-    public double getPaymentChange() {
-        return paymentChange;
+    public double getTenderedChange() {
+        return tenderedChange;
     }
 
-    public void setPaymentChange(double paymentChange) {
-        this.paymentChange = paymentChange;
+    public void setTenderedChange(double tenderedChange) {
+        this.tenderedChange = tenderedChange;
     }
 
     @Override
     public String toString() {
         return "CustomerInvoice{" +
                 "id=" + id +
-                ", subtotal=" + subtotal +
+                ", amountDue=" + amountDue +
                 ", date=" + date +
                 ", customer=" + customer +
                 ", productOrderList=" + productOrderList +

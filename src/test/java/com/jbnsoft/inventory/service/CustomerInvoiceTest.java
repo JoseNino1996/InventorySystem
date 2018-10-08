@@ -20,8 +20,8 @@ public class CustomerInvoiceTest {
     public void paymentMustGreaterOrEqualSubtotal()  {
         CustomerInvoice customerInvoice = new CustomerInvoice();
 
-        customerInvoice.setSubtotal(1000);
-        customerInvoice.setPayment(1100);
+        customerInvoice.setAmountDue(1000);
+        customerInvoice.setAmountTendered(1100);
 
         boolean result =   customerInvoiceService.checkCustomerPayment(customerInvoice);
 

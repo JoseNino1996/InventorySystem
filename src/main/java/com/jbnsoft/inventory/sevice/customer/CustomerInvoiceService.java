@@ -37,18 +37,18 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
     public CustomerInvoice create(CustomerInvoice customerInvoice) throws Exception {
         List<ProductOrder> productOrderList = customerInvoice.getProductOrderList();
 
-       customerInvoice.setSubtotal(mapProductIdandOrderQuantity(productOrderList,createOrder));
+       customerInvoice.setAmountDue(mapProductIdandOrderQuantity(productOrderList,createOrder));
 
        if(!checkCustomerPayment(customerInvoice)) {
-            throw new Exception("Insufficient payment! Subtotal is: " + customerInvoice.getSubtotal() );
+            throw new Exception("Insufficient payment! Subtotal is: " + customerInvoice.getAmountDue() );
        }
         return customerInvoiceRepository.save(customerInvoice);
     }
 
     @Override
     public boolean checkCustomerPayment(CustomerInvoice customerInvoice)  {
-        if(customerInvoice.getPayment() >= customerInvoice.getSubtotal()) {
-            customerInvoice.setPaymentChange(customerInvoice.getPayment() - customerInvoice.getSubtotal());
+        if(customerInvoice.getAmountTendered() >= customerInvoice.getAmountDue()) {
+            customerInvoice.setTenderedChange(customerInvoice.getAmountTendered() - customerInvoice.getAmountDue());
             return true;
         }
         return false;
@@ -74,7 +74,7 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
 
         mapProductIdandOrderQuantity(currentOrderList, deleteOrder);
         List<ProductOrder> newOrderList = customerInvoice.getProductOrderList();
-        customerInvoice.setSubtotal(mapProductIdandOrderQuantity(newOrderList,createOrder));
+        customerInvoice.setAmountDue(mapProductIdandOrderQuantity(newOrderList,createOrder));
 
 
         validateCustomerPayment(storedCustomerInvoice, customerInvoice);
@@ -84,18 +84,18 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
     }
 
     private void validateCustomerPayment(CustomerInvoice storedCustomerInvoice, CustomerInvoice newCustomerInvoice) throws Exception {
-        if(newCustomerInvoice.getPayment()==0) {
-            storedCustomerInvoice.setSubtotal(newCustomerInvoice.getSubtotal());
+        if(newCustomerInvoice.getAmountTendered()==0) {
+            storedCustomerInvoice.setAmountDue(newCustomerInvoice.getAmountDue());
 
             if(checkCustomerPayment(storedCustomerInvoice)) {
-                newCustomerInvoice.setPayment(storedCustomerInvoice.getPayment());
-                newCustomerInvoice.setPaymentChange(storedCustomerInvoice.getPaymentChange());
+                newCustomerInvoice.setAmountTendered(storedCustomerInvoice.getAmountTendered());
+                newCustomerInvoice.setTenderedChange(storedCustomerInvoice.getTenderedChange());
             } else {
-                throw new Exception("Insufficient entered payment!" + " subtotal is :" + newCustomerInvoice.getSubtotal());
+                throw new Exception("Insufficient entered payment!" + " subtotal is :" + newCustomerInvoice.getAmountDue());
             }
         } else {
             if(!checkCustomerPayment(newCustomerInvoice))  {
-                throw new Exception("Insufficient entered payment!" + " subtotal is :" + newCustomerInvoice.getSubtotal());
+                throw new Exception("Insufficient entered payment!" + " subtotal is :" + newCustomerInvoice.getAmountDue());
             }
         }
     }

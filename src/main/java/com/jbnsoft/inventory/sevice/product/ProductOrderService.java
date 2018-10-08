@@ -26,9 +26,10 @@ public class ProductOrderService implements  IProductOrderService {
         Map<Long, Long> productIdAndOrderQty = new HashMap<>();
         ProductInventory productInventory = productOrder.getProductInventory();
 
+
         productIdAndOrderQty.put(productInventory.getId(), productOrder.getOrderedQty());
 
-        productInventoryService.processOrderQuantity(productIdAndOrderQty,createOrder);
+        productInventoryService.processOrderQuantity(productIdAndOrderQty,createOrder, productInventoryService.getListOfProductInventory());
         return productOrderRepository.save(productOrder);
     }
 

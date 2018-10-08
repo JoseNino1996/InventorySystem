@@ -10,9 +10,9 @@ public interface ICustomerInvoiceService  {
     CustomerInvoice update(CustomerInvoice customerInvoice, Long id) throws Exception;
     void delete(Long id) throws Exception;
     CustomerInvoice findById(Long id);
-    List<CustomerInvoice> getListOfCustomersInvoice();
+    List<CustomerInvoice> findAll();
 
-    //
-    boolean checkCustomerPayment(CustomerInvoice customerInvoice) ;
+
+    boolean checkTenderedAmount(CustomerInvoice customerInvoice) ;
 
 }

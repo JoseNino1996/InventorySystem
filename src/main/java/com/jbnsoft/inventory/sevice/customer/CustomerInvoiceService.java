@@ -36,23 +36,12 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
     @Override
     public CustomerInvoice create(CustomerInvoice customerInvoice) throws Exception {
         List<ProductOrder> productOrderList = customerInvoice.getProductOrderList();
+        double amountDue = getAmountDueInProcessedOrderedQuantity(productOrderList,createOrder);
+        customerInvoice.setAmountDue(amountDue);
 
-       customerInvoice.setAmountDue(mapProductIdandOrderQuantity(productOrderList,createOrder));
-
-       if(!checkCustomerPayment(customerInvoice)) {
-            throw new Exception("Insufficient payment! Subtotal is: " + customerInvoice.getAmountDue() );
-       }
         return customerInvoiceRepository.save(customerInvoice);
     }
 
-    @Override
-    public boolean checkCustomerPayment(CustomerInvoice customerInvoice)  {
-        if(customerInvoice.getAmountTendered() >= customerInvoice.getAmountDue()) {
-            customerInvoice.setTenderedChange(customerInvoice.getAmountTendered() - customerInvoice.getAmountDue());
-            return true;
-        }
-        return false;
-    }
 
     @Override
     public void delete(Long id) throws Exception {
@@ -62,7 +51,7 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
 
         List<ProductOrder> productOrderList = storedCustomerInvoice.getProductOrderList();
 
-        mapProductIdandOrderQuantity(productOrderList,deleteOrder);
+        getAmountDueInProcessedOrderedQuantity(productOrderList,deleteOrder);
 
         customerInvoiceRepository.deleteById(id);
     }
@@ -72,9 +61,9 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
         CustomerInvoice storedCustomerInvoice =findById(id);
         List<ProductOrder> currentOrderList = storedCustomerInvoice.getProductOrderList();
 
-        mapProductIdandOrderQuantity(currentOrderList, deleteOrder);
+        getAmountDueInProcessedOrderedQuantity(currentOrderList, deleteOrder);
         List<ProductOrder> newOrderList = customerInvoice.getProductOrderList();
-        customerInvoice.setAmountDue(mapProductIdandOrderQuantity(newOrderList,createOrder));
+        customerInvoice.setAmountDue(getAmountDueInProcessedOrderedQuantity(newOrderList,createOrder));
 
 
         validateCustomerPayment(storedCustomerInvoice, customerInvoice);
@@ -87,14 +76,14 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
         if(newCustomerInvoice.getAmountTendered()==0) {
             storedCustomerInvoice.setAmountDue(newCustomerInvoice.getAmountDue());
 
-            if(checkCustomerPayment(storedCustomerInvoice)) {
+            if(checkTenderedAmount(storedCustomerInvoice)) {
                 newCustomerInvoice.setAmountTendered(storedCustomerInvoice.getAmountTendered());
                 newCustomerInvoice.setTenderedChange(storedCustomerInvoice.getTenderedChange());
             } else {
                 throw new Exception("Insufficient entered payment!" + " subtotal is :" + newCustomerInvoice.getAmountDue());
             }
         } else {
-            if(!checkCustomerPayment(newCustomerInvoice))  {
+            if(!checkTenderedAmount(newCustomerInvoice))  {
                 throw new Exception("Insufficient entered payment!" + " subtotal is :" + newCustomerInvoice.getAmountDue());
             }
         }
@@ -103,14 +92,15 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
 
 
 
-    private double mapProductIdandOrderQuantity(List<ProductOrder> productOrders, ProcessOrder processOrder) throws Exception {
+    private double getAmountDueInProcessedOrderedQuantity(List<ProductOrder> productOrders, ProcessOrder processOrder) throws Exception {
         Map<Long, Long> productIdAndOrderedQty = new HashMap<>();
-        ProductInventory productInventory;
+
         for (ProductOrder productOrder : productOrders) {
-            productInventory = productOrder.getProductInventory();
+            ProductInventory productInventory = productOrder.getProductInventory();
             productIdAndOrderedQty.put(productInventory.getId(), productOrder.getOrderedQty());
         }
-       return productInventoryService.processOrderQuantity(productIdAndOrderedQty, processOrder);
+
+       return productInventoryService.processOrderQuantity(productIdAndOrderedQty, processOrder, productInventoryService.getListOfProductInventory());
 
     }
 
@@ -120,12 +110,22 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
     }
 
     @Override
-    public List<CustomerInvoice> getListOfCustomersInvoice() {
+    public List<CustomerInvoice> findAll() {
         List<CustomerInvoice> listOfCustomersInvoice = new ArrayList<>();
         for(CustomerInvoice customerInvoice : customerInvoiceRepository.findAll()) {
             listOfCustomersInvoice.add(customerInvoice);
         }
         return listOfCustomersInvoice;
     }
+
+    @Override
+    public boolean checkTenderedAmount(CustomerInvoice customerInvoice)  {
+        if(customerInvoice.getAmountTendered() >= customerInvoice.getAmountDue()) {
+            customerInvoice.setTenderedChange(customerInvoice.getAmountTendered() - customerInvoice.getAmountDue());
+            return true;
+        }
+        return false;
+    }
+
 
 }

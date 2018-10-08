@@ -39,7 +39,7 @@ public class CustomerInvoiceResource {
 
     @GetMapping("/findAll")
     public List<CustomerInvoice> getListofCustomersInvoice() {
-        return customerInvoiceService.getListOfCustomersInvoice();
+        return customerInvoiceService.findAll();
     }
 
 }

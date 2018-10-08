@@ -23,7 +23,7 @@ public class CustomerInvoiceTest {
         customerInvoice.setAmountDue(1000);
         customerInvoice.setAmountTendered(1100);
 
-        boolean result =   customerInvoiceService.checkCustomerPayment(customerInvoice);
+        boolean result =   customerInvoiceService.checkTenderedAmount(customerInvoice);
 
 
         Assert.assertEquals(true,result);

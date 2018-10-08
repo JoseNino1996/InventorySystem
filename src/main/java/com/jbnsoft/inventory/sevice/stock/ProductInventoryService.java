@@ -47,8 +47,8 @@ public class ProductInventoryService implements IProductInventoryService {
     }
 
     @Override
-    public double processOrderQuantity(Map<Long, Long> productIdAndOrderedQty, ProcessOrder processOrder) throws Exception {
-        return processOrder.processOrderQuantity(productIdAndOrderedQty);
+    public double processOrderQuantity(Map<Long, Long> productIdAndOrderedQty, ProcessOrder processOrder, List<ProductInventory> productInventoryList) throws Exception {
+        return processOrder.processOrderQuantity(productIdAndOrderedQty,productInventoryList);
     }
 
     @Override

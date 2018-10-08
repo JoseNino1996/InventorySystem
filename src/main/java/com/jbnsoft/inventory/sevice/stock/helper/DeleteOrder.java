@@ -10,13 +10,13 @@ import java.util.Map;
 @Component
 public class DeleteOrder extends ProcessOrder {
     @Override
-    public double processOrderQuantity(Map<Long, Long> productIdAndOrderedQty) throws Exception {
+    public double processOrderQuantity(Map<Long, Long> productIdAndOrderedQty, List<ProductInventory> fetchedProductInventoryList) throws Exception {
         List<ProductInventory> productInventoryList = new ArrayList<>();
         double subtotal = 0;
 
 
         for(Map.Entry<Long, Long> entry : productIdAndOrderedQty.entrySet()) {
-            ProductInventory productInventory = checkIfExist(entry.getKey());
+            ProductInventory productInventory = checkProductInventoryIfExist(entry.getKey(),fetchedProductInventoryList);
             productInventory.setQuantity(productInventory.getQuantity() + entry.getValue());
 
             productInventoryList.add(productInventory);

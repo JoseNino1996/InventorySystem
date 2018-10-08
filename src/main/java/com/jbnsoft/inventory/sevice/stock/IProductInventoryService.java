@@ -18,7 +18,7 @@ public interface  IProductInventoryService {
        List<ProductInventory> getListOfProductInventory();
 
       void saveAll(Iterable<ProductInventory> productInventories);
-      double processOrderQuantity(Map<Long, Long> productIdAndOrderedQty, ProcessOrder processOrder) throws Exception;
+      double processOrderQuantity(Map<Long, Long> productIdAndOrderedQty, ProcessOrder processOrder, List<ProductInventory> productInventoryList) throws Exception;
 
 
 }

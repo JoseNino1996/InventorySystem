@@ -12,11 +12,14 @@ public abstract class ProcessOrder {
     @Autowired
     protected ProductInventoryService iProductInventoryService;
 
-    public abstract double processOrderQuantity(Map<Long, Long> productIdAndOrderedQty) throws Exception;
+    public abstract double processOrderQuantity(Map<Long, Long> productIdAndOrderedQty,
+                                                List<ProductInventory> productInventoryList) throws Exception;
 
 
-     protected ProductInventory checkIfExist(Long id) throws Exception {
-          List<ProductInventory> productInventoryList = iProductInventoryService.getListOfProductInventory();
+     protected ProductInventory checkProductInventoryIfExist(Long id,
+                                                             List<ProductInventory> fetchedProductInventoryList) throws Exception {
+
+          List<ProductInventory> productInventoryList = fetchedProductInventoryList;
           ProductInventory foundProductInventory =null;
 
 
@@ -32,10 +35,9 @@ public abstract class ProcessOrder {
           }
       }
 
+
       public boolean checkProductAvailability(long orderedQuantity, long storedQuantity) {
-         if(orderedQuantity > storedQuantity) {
-            return  false;
-         }
+         if(orderedQuantity > storedQuantity) return  false;
          return  true;
       }
 

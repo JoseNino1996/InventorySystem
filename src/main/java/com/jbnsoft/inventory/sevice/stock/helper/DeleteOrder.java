@@ -13,17 +13,15 @@ public class DeleteOrder extends ProcessOrder {
     public double processOrderQuantity(Map<Long, Long> productIdAndOrderedQty) throws Exception {
         List<ProductInventory> productInventoryList = new ArrayList<>();
         double subtotal = 0;
-        ProductInventory productInventory;
 
 
         for(Map.Entry<Long, Long> entry : productIdAndOrderedQty.entrySet()) {
-            productInventory = checkIfExist(entry.getKey());
+            ProductInventory productInventory = checkIfExist(entry.getKey());
             productInventory.setQuantity(productInventory.getQuantity() + entry.getValue());
 
             productInventoryList.add(productInventory);
             subtotal += entry.getValue() * productInventory.getPrice();
         }
-
 
         iProductInventoryService.saveAll(productInventoryList);
         return subtotal;

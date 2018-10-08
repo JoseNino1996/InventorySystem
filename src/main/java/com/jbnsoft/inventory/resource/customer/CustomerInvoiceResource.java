@@ -18,7 +18,7 @@ public class CustomerInvoiceResource {
 
     @PostMapping("/create")
     public CustomerInvoice create(@RequestBody CustomerInvoice customerInvoice) throws Exception {
-
+        customerInvoice.getDate();
         return  customerInvoiceService.create(customerInvoice);
     }
 

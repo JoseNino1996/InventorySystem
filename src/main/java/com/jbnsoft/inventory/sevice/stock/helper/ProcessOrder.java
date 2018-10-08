@@ -28,7 +28,7 @@ public abstract class ProcessOrder {
           if(foundProductInventory != null) {
               return foundProductInventory;
           } else {
-              throw new Exception("Product is not available");
+              throw new Exception("Product not available");
           }
       }
 

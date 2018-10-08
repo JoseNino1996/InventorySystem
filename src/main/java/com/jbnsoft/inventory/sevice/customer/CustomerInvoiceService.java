@@ -39,7 +39,6 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
 
        customerInvoice.setSubtotal(mapProductIdandOrderQuantity(productOrderList,createOrder));
 
-
        if(!checkCustomerPayment(customerInvoice)) {
             throw new Exception("Insufficient payment! Subtotal is: " + customerInvoice.getSubtotal() );
        }

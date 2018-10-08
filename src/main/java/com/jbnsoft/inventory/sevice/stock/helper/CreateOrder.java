@@ -18,7 +18,7 @@ public class CreateOrder extends ProcessOrder {
             ProductInventory productInventory = checkIfExist(entry.getKey());
 
             if(!checkProductAvailability(entry.getValue(),productInventory.getQuantity())) {
-                throw new Exception("Insufficient product quantity! stored product:" + productInventory.getQuantity() );
+                throw new Exception("Insufficient product quantity! remaining product quantity:" + productInventory.getQuantity() );
             }
             productInventory.setQuantity(productInventory.getQuantity() - entry.getValue());
 

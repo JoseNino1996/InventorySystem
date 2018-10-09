@@ -21,4 +21,7 @@ public interface  IProductInventoryService {
       double processOrderQuantity(Map<Long, Long> productIdAndOrderedQty, ProcessOrder processOrder, List<ProductInventory> productInventoryList) throws Exception;
 
 
+      ProductInventory findProductInvetoryByProductId(Long id);
+
+
 }

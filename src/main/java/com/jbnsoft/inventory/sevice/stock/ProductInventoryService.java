@@ -52,6 +52,11 @@ public class ProductInventoryService implements IProductInventoryService {
     }
 
     @Override
+    public ProductInventory findProductInvetoryByProductId(Long id) {
+        return productInventoryRepository.findByProductId(id);
+    }
+
+    @Override
     public void saveAll(Iterable<ProductInventory> productInventories) {
         productInventoryRepository.saveAll(productInventories);
     }

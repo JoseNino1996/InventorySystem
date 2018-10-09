@@ -3,6 +3,7 @@ package com.jbnsoft.inventory.sevice.customer;
 
 import com.jbnsoft.inventory.repository.customer.CustomerInvoice;
 import com.jbnsoft.inventory.repository.customer.CustomerInvoiceRepository;
+import com.jbnsoft.inventory.repository.product.Product;
 import com.jbnsoft.inventory.repository.product.ProductOrder;
 import com.jbnsoft.inventory.repository.stock.ProductInventory;
 import com.jbnsoft.inventory.sevice.stock.ProductInventoryService;
@@ -115,7 +116,9 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
         Map<Long, Long> productIdAndOrderedQty = new HashMap<>();
 
         for (ProductOrder productOrder : productOrders) {
-            ProductInventory productInventory = productOrder.getProductInventory();
+            Product product = productOrder.getProduct();
+            ProductInventory productInventory = productInventoryService.findProductInvetoryByProductId(product.getId());
+            System.out.println(productInventory);
             productIdAndOrderedQty.put(productInventory.getId(), productOrder.getOrderedQty());
         }
         double amountDue = productInventoryService.processOrderQuantity(productIdAndOrderedQty, processOrder, productInventoryService.getListOfProductInventory());

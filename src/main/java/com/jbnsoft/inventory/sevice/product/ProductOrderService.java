@@ -1,5 +1,6 @@
 package com.jbnsoft.inventory.sevice.product;
 
+import com.jbnsoft.inventory.repository.product.Product;
 import com.jbnsoft.inventory.repository.product.ProductOrder;
 import com.jbnsoft.inventory.repository.product.ProductOrderRepository;
 import com.jbnsoft.inventory.repository.stock.ProductInventory;
@@ -24,7 +25,8 @@ public class ProductOrderService implements  IProductOrderService {
     @Override
     public ProductOrder create(ProductOrder productOrder) throws Exception {
         Map<Long, Long> productIdAndOrderQty = new HashMap<>();
-        ProductInventory productInventory = productOrder.getProductInventory();
+        Product product = productOrder.getProduct();
+        ProductInventory productInventory = productInventoryService.findProductInvetoryByProductId(product.getId());
 
 
         productIdAndOrderQty.put(productInventory.getId(), productOrder.getOrderedQty());

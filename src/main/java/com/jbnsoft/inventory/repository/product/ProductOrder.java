@@ -15,7 +15,7 @@ public class ProductOrder {
 
 
     @OneToOne( fetch = FetchType.EAGER)
-    private ProductInventory productInventory;
+    private Product product;
 
     public Long getId() {
         return id;
@@ -33,12 +33,13 @@ public class ProductOrder {
         this.orderedQty = orderedQty;
     }
 
-    public ProductInventory getProductInventory() {
-        return productInventory;
+
+    public Product getProduct() {
+        return product;
     }
 
-    public void setProductInventory(ProductInventory productInventory) {
-        this.productInventory = productInventory;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     @Override
@@ -46,7 +47,7 @@ public class ProductOrder {
         return "ProductOrder{" +
                 "id=" + id +
                 ", orderedQty=" + orderedQty +
-                ", productInventory=" + productInventory +
+                ", product=" + product +
                 '}';
     }
 }

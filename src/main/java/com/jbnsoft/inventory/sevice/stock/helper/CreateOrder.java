@@ -19,15 +19,10 @@ public class CreateOrder extends ProcessOrder {
         for(Map.Entry<Long, Long> entry : productIdAndOrderedQty.entrySet()) {
             ProductInventory productInventory = checkProductInventoryIfExist(entry.getKey(),fetchedProductInventoryList);
 
-            if(!checkProductAvailability(entry.getValue(),productInventory.getQuantity())) {
-                throw new Exception("Insufficient product quantity! remaining product quantity:" + productInventory.getQuantity() );
-            }
             productInventory.setQuantity(productInventory.getQuantity() - entry.getValue());
-
             productInventoryList.add(productInventory);
             subtotal += entry.getValue() * productInventory.getPrice();
         }
-
 
         iProductInventoryService.saveAll(productInventoryList);
         return subtotal;

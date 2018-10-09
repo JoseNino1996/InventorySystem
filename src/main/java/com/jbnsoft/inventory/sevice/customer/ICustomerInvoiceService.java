@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ICustomerInvoiceService  {
     CustomerInvoice create(CustomerInvoice customerInvoice) throws Exception;
-    CustomerInvoice update(CustomerInvoice customerInvoice, Long id) throws Exception;
+    CustomerInvoice update(CustomerInvoice customerInvoice) throws Exception;
     void delete(Long id) throws Exception;
     CustomerInvoice findById(Long id);
     List<CustomerInvoice> findAll();

@@ -23,8 +23,8 @@ public class CustomerInvoiceResource {
     }
 
     @PostMapping("/update")
-    public CustomerInvoice update(@RequestBody CustomerInvoice customerInvoice, @RequestParam Long id) throws Exception {
-        return  customerInvoiceService.update(customerInvoice, id);
+    public CustomerInvoice update(@RequestBody CustomerInvoice customerInvoice) throws Exception {
+        return  customerInvoiceService.update(customerInvoice);
     }
 
     @GetMapping("/findById")

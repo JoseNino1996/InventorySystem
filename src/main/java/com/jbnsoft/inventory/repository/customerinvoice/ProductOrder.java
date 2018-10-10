@@ -1,7 +1,7 @@
-package com.jbnsoft.inventory.repository.product;
+package com.jbnsoft.inventory.repository.customerinvoice;
 
 
-import com.jbnsoft.inventory.repository.stock.ProductInventory;
+import com.jbnsoft.inventory.repository.product.Product;
 
 
 import javax.persistence.*;

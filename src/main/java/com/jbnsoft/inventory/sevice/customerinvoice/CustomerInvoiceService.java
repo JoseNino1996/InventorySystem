@@ -1,12 +1,11 @@
-package com.jbnsoft.inventory.sevice.customer;
+package com.jbnsoft.inventory.sevice.customerinvoice;
 
 
-import com.jbnsoft.inventory.repository.customer.CustomerInvoice;
-import com.jbnsoft.inventory.repository.customer.CustomerInvoiceRepository;
+import com.jbnsoft.inventory.repository.customerinvoice.CustomerInvoice;
+import com.jbnsoft.inventory.repository.customerinvoice.CustomerInvoiceRepository;
 import com.jbnsoft.inventory.repository.product.Product;
-import com.jbnsoft.inventory.repository.product.ProductOrder;
+import com.jbnsoft.inventory.repository.customerinvoice.ProductOrder;
 import com.jbnsoft.inventory.repository.stock.ProductInventory;
-import com.jbnsoft.inventory.sevice.product.ProductOrderService;
 import com.jbnsoft.inventory.sevice.stock.ProductInventoryService;
 import com.jbnsoft.inventory.sevice.stock.helper.CreateOrder;
 import com.jbnsoft.inventory.sevice.stock.helper.DeleteOrder;
@@ -30,7 +29,6 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
     @Autowired
     ProductOrderService productOrderService;
 
-
     @Autowired
     private CreateOrder createOrder;
     @Autowired
@@ -41,10 +39,10 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
     public CustomerInvoice create(CustomerInvoice customerInvoice) throws Exception {
         List<ProductOrder> productOrderList = customerInvoice.getProductOrderList();
 
-        double amountDue = getAmountDueInProcessedOrderedQuantity(productOrderList,createOrder);
-        customerInvoice.setAmountDue(amountDue);
+        CustomerInvoice savedCustomerInvoice = customerInvoiceRepository.save(customerInvoice);
 
-        return customerInvoiceRepository.save(customerInvoice);
+        processOrderInProductInventory(productOrderList,createOrder);
+        return savedCustomerInvoice;
     }
 
 
@@ -53,30 +51,28 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
         CustomerInvoice storedCustomerInvoice = findById(id);
         List<ProductOrder> productOrderList = storedCustomerInvoice.getProductOrderList();
 
-        getAmountDueInProcessedOrderedQuantity(productOrderList,deleteOrder);
-
         customerInvoiceRepository.deleteById(id);
+        processOrderInProductInventory(productOrderList,deleteOrder);
     }
 
     @Override
     public CustomerInvoice update(CustomerInvoice customerInvoice) throws Exception {
         CustomerInvoice storedCustomerInvoice =findById(customerInvoice.getId());
         List<ProductOrder> currentOrderList = storedCustomerInvoice.getProductOrderList();
+        processOrderInProductInventory(currentOrderList, deleteOrder);
 
-
-        getAmountDueInProcessedOrderedQuantity(currentOrderList, deleteOrder);
         List<ProductOrder> newOrderList = customerInvoice.getProductOrderList();
-        double amountDue = getAmountDueInProcessedOrderedQuantity(newOrderList,createOrder);
-        customerInvoice.setAmountDue(amountDue);
 
+        CustomerInvoice savedCustomerInvoice = customerInvoiceRepository.save(customerInvoice);
 
-        customerInvoice.setId(storedCustomerInvoice.getId());
-        return customerInvoiceRepository.save(customerInvoice);
+        processOrderInProductInventory(newOrderList,createOrder);
+        return savedCustomerInvoice;
     }
 
 
     @Override
     public CustomerInvoice findById(Long id) {
+
         return customerInvoiceRepository.findById(id).orElse(null  );
     }
 
@@ -90,24 +86,22 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
     }
 
 
-
-
-    private double getAmountDueInProcessedOrderedQuantity(List<ProductOrder> productOrders, ProcessOrder processOrder) throws Exception {
+    private void  processOrderInProductInventory(List<ProductOrder> productOrders, ProcessOrder processOrder) throws Exception {
         Map<Long, Long> productIdAndOrderedQty = new HashMap<>();
 
         List<ProductInventory> availableProducts = new ArrayList<>();
+        List<ProductInventory> productInventoryList = productInventoryService.getListOfProductInventory();
 
         for (ProductOrder productOrder : productOrders) {
             Product product = productOrder.getProduct();
 
-            ProductInventory productInventory = productInventoryService.validateProductIfAvailable(product.getId(), productInventoryService.getListOfProductInventory(), processOrder);
+            ProductInventory productInventory = productInventoryService.validateProductIfAvailable(product.getId(), productInventoryList, processOrder);
             availableProducts.add(productInventory);
 
             productIdAndOrderedQty.put(productInventory.getId(), productOrder.getOrderedQty());
         }
-        double amountDue = productInventoryService.processOrderQuantity(productIdAndOrderedQty, processOrder,availableProducts);
 
-        return amountDue;
+        productInventoryService.processOrderQuantity(productIdAndOrderedQty, processOrder,availableProducts);
     }
 
 

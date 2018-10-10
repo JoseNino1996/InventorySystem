@@ -1,6 +1,5 @@
 package com.jbnsoft.inventory.sevice.stock;
 
-import com.jbnsoft.inventory.repository.stock.ProductInventory;
 import com.jbnsoft.inventory.repository.stock.StockLog;
 import com.jbnsoft.inventory.repository.stock.StockLogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,16 +13,11 @@ import java.util.List;
 public class StockLogService implements  IStockLogService {
     @Autowired
     private StockLogRepository stockLogRepository;
-    @Autowired
-    private ProductInventoryService productInventoryService;
 
 
     @Override
     public StockLog create(StockLog stockLog)  {
-        ProductInventory productInventory = stockLog.getProductInventory();
-        ProductInventory storedProductInventory = productInventoryService.findById(productInventory.getId());
-        storedProductInventory.setQuantity(stockLog.getAddedQuantity() + storedProductInventory.getQuantity());
-        productInventoryService.update(storedProductInventory, productInventory.getId());
+
         return stockLogRepository.save(stockLog);
     }
 
@@ -44,8 +38,9 @@ public class StockLogService implements  IStockLogService {
         return stockLogRepository.findById(id).orElse(null);
     }
 
+
     @Override
-    public List<StockLog> getStocklogs() {
+    public List<StockLog> findAll() {
         List<StockLog> stockLogList = new ArrayList<>();
         for(StockLog stockLog : stockLogRepository.findAll()) {
             stockLogList.add(stockLog);

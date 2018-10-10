@@ -13,7 +13,7 @@ public abstract class ProcessOrder {
     @Autowired
     protected ProductInventoryService iProductInventoryService;
 
-    public abstract double processOrderQuantity(Map<Long, Long> productIdAndOrderedQty,
+    public abstract void processOrderQuantity(Map<Long, Long> productIdAndOrderedQty,
                                                 List<ProductInventory> productInventoryList) throws Exception;
 
 }

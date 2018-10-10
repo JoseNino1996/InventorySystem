@@ -1,9 +1,8 @@
-package com.jbnsoft.inventory.resource.product;
+package com.jbnsoft.inventory.resource.customerinvoice;
 
 
-import com.jbnsoft.inventory.repository.product.ProductOrder;
-import com.jbnsoft.inventory.sevice.product.IProductOrderService;
-import com.jbnsoft.inventory.sevice.product.ProductOrderService;
+import com.jbnsoft.inventory.repository.customerinvoice.ProductOrder;
+import com.jbnsoft.inventory.sevice.customerinvoice.IProductOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

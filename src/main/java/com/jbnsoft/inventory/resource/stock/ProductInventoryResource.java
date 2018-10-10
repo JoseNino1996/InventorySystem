@@ -1,6 +1,8 @@
 package com.jbnsoft.inventory.resource.stock;
 
 
+import com.jbnsoft.inventory.repository.customerinvoice.ProductOrder;
+import com.jbnsoft.inventory.repository.product.Product;
 import com.jbnsoft.inventory.repository.stock.ProductInventory;
 import com.jbnsoft.inventory.sevice.stock.IProductInventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +33,9 @@ public class ProductInventoryResource  {
     }
 
     @PostMapping("/update")
-    public  ProductInventory update(@RequestBody ProductInventory productInventory, @RequestParam("id") Long id) {
+    public  ProductInventory update(@RequestBody ProductInventory productInventory) {
 
-        return  productInventoryService.update(productInventory,id);
+        return  productInventoryService.update(productInventory);
     }
     @GetMapping("/findAll")
     public List<ProductInventory> findAll() {
@@ -41,6 +43,17 @@ public class ProductInventoryResource  {
     }
 
 
+    @PostMapping("/addStock")
+    public ProductInventory addStock(@RequestBody ProductInventory productInventory) {
 
+        return  productInventoryService.addProductQuantity(productInventory);
+    }
+
+    @PostMapping("/validateProductOrder")
+    public List<ProductInventory> validateProductOrder(@RequestBody List<ProductOrder> productOrders) {
+
+        return  null ;
+
+    }
 
 }

@@ -1,7 +1,6 @@
-package com.jbnsoft.inventory.sevice.customer;
+package com.jbnsoft.inventory.sevice.customerinvoice;
 
-import com.jbnsoft.inventory.repository.customer.CustomerInvoice;
-import org.springframework.data.repository.CrudRepository;
+import com.jbnsoft.inventory.repository.customerinvoice.CustomerInvoice;
 
 import java.util.List;
 

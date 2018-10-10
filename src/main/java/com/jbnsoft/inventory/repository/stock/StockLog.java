@@ -13,7 +13,7 @@ public class StockLog {
     private long addedQuantity;
 
 
-    @OneToOne(cascade =CascadeType.MERGE, fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER)
     private ProductInventory productInventory;
     public Long getId() {
         return id;

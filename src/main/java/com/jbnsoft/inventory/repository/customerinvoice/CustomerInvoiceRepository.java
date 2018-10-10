@@ -1,4 +1,4 @@
-package com.jbnsoft.inventory.repository.customer;
+package com.jbnsoft.inventory.repository.customerinvoice;
 
 import org.springframework.data.repository.CrudRepository;
 

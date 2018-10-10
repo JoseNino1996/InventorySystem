@@ -1,9 +1,9 @@
-package com.jbnsoft.inventory.resource.customer;
+package com.jbnsoft.inventory.resource.customerinvoice;
 
 
-import com.jbnsoft.inventory.repository.customer.CustomerInvoice;
+import com.jbnsoft.inventory.repository.customerinvoice.CustomerInvoice;
 
-import com.jbnsoft.inventory.sevice.customer.ICustomerInvoiceService;
+import com.jbnsoft.inventory.sevice.customerinvoice.ICustomerInvoiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

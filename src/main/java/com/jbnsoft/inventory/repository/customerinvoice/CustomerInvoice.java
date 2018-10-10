@@ -1,6 +1,6 @@
-package com.jbnsoft.inventory.repository.customer;
+package com.jbnsoft.inventory.repository.customerinvoice;
 
-import com.jbnsoft.inventory.repository.product.ProductOrder;
+import com.jbnsoft.inventory.repository.customer.Customer;
 
 import javax.persistence.*;
 import java.util.Date;

@@ -1,14 +1,14 @@
 package com.jbnsoft.inventory.sevice.stock;
 import com.jbnsoft.inventory.repository.product.Product;
-import com.jbnsoft.inventory.repository.product.ProductOrder;
 import com.jbnsoft.inventory.repository.stock.ProductInventory;
 import com.jbnsoft.inventory.repository.stock.ProductInventoryRepository;
-import com.jbnsoft.inventory.sevice.stock.helper.CreateOrder;
+import com.jbnsoft.inventory.repository.stock.StockLog;
 import com.jbnsoft.inventory.sevice.stock.helper.ProcessOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -17,8 +17,8 @@ public class ProductInventoryService implements IProductInventoryService {
     @Autowired
     private ProductInventoryRepository productInventoryRepository;
 
-
-
+    @Autowired
+    StockLogService stockLogService;
 
     @Override
     public ProductInventory create(ProductInventory productInventory) {
@@ -26,9 +26,7 @@ public class ProductInventoryService implements IProductInventoryService {
     }
 
     @Override
-    public ProductInventory update(ProductInventory productInventory, Long id) {
-        ProductInventory storedProductInventory = productInventoryRepository.findById(id).orElse(null   );
-          productInventory.setId(storedProductInventory.getId());
+    public ProductInventory update(ProductInventory productInventory) {
         return productInventoryRepository.save(productInventory);
     }
 
@@ -53,12 +51,30 @@ public class ProductInventoryService implements IProductInventoryService {
     }
 
     @Override
-    public double processOrderQuantity(Map<Long, Long> productIdAndOrderedQty, ProcessOrder processOrder, List<ProductInventory> productInventoryList) throws Exception {
-        return processOrder.processOrderQuantity(productIdAndOrderedQty,productInventoryList);
+    public void processOrderQuantity(Map<Long, Long> productIdAndOrderedQty, ProcessOrder processOrder, List<ProductInventory> productInventoryList) throws Exception {
+         processOrder.processOrderQuantity(productIdAndOrderedQty,productInventoryList);
     }
 
     @Override
-    public ProductInventory findProductInvetoryByProductId(Long id) {
+    public ProductInventory addProductQuantity(ProductInventory productInventory) {
+        ProductInventory storedProductInventory = findById(productInventory.getId());
+        productInventory.setQuantity(storedProductInventory.getQuantity() + productInventory.getQuantity());
+        productInventory.setPrice(storedProductInventory.getPrice());
+        productInventory.setProduct(storedProductInventory.getProduct());
+
+        update(productInventory);
+
+        StockLog stockLog = new StockLog();
+        stockLog.setDate(new Date());
+        stockLog.setAddedQuantity(productInventory.getQuantity());
+        stockLog.setProductInventory(productInventory);
+        stockLogService.create(stockLog);
+
+        return productInventory;
+    }
+
+    @Override
+    public ProductInventory findProductInventoryByProductId(long id) {
         return productInventoryRepository.findByProductId(id);
     }
 
@@ -73,7 +89,6 @@ public class ProductInventoryService implements IProductInventoryService {
                 foundProductInventory = productInventory;
             }
         }
-
         if(foundProductInventory != null) {
             return foundProductInventory;
         } else {
@@ -85,4 +100,5 @@ public class ProductInventoryService implements IProductInventoryService {
     public void saveAll(Iterable<ProductInventory> productInventories) {
         productInventoryRepository.saveAll(productInventories);
     }
+
 }

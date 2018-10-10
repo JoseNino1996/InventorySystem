@@ -10,6 +10,8 @@ public interface IStockLogService {
     void delete(Long id);
     StockLog update(StockLog stockLog, Long id);
     StockLog findById(Long id);
-    List<StockLog> getStocklogs();
+    List<StockLog> findAll();
+
+
 
 }

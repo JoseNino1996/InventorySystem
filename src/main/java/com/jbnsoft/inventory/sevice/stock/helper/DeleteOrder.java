@@ -11,26 +11,23 @@ import java.util.Map;
 @Component
 public class DeleteOrder extends ProcessOrder {
     @Override
-    public double processOrderQuantity(Map<Long, Long> productIdAndOrderedQty,
+    public void processOrderQuantity(Map<Long, Long> productIdAndOrderedQty,
                                        List<ProductInventory> availableProducts) {
 
         List<ProductInventory> productInventoryList = new ArrayList<>();
-        double subtotal = 0;
 
             for(Map.Entry<Long, Long> entry : productIdAndOrderedQty.entrySet()) {
                 for(ProductInventory productInventory : availableProducts) {
                     Product product = productInventory.getProduct();
 
-                    if(product.getId() == entry.getKey()) {
+                    if(product.getId().equals(entry.getKey())) {
 
                         productInventory.setQuantity(productInventory.getQuantity()+ entry.getValue());
                         productInventoryList.add(productInventory);
-                        subtotal += entry.getValue() * productInventory.getPrice();
                     }
                 }
         }
-
         iProductInventoryService.saveAll(productInventoryList);
-        return subtotal;
+
     }
 }

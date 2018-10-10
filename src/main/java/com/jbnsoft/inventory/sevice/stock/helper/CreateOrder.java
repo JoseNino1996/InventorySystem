@@ -18,15 +18,17 @@ public class CreateOrder extends ProcessOrder {
         double subtotal = 0;
 
         for(Map.Entry<Long, Long> entry : productIdAndOrderedQty.entrySet()) {
-         //    ProductInventory productInventory = checkProductInventoryIfMatchesToOrder(entry.getKey(),availableProducts);
 
-            for(ProductInventory productInventory : availableProducts) {
-
-                productInventory.setQuantity(productInventory.getQuantity() - entry.getValue());
-                productInventoryList.add(productInventory);
-                subtotal += entry.getValue() * productInventory.getPrice();
-
+             for(ProductInventory productInventory : availableProducts) {
+                Product product = productInventory.getProduct();
+                if(product.getId() == entry.getKey()) {
+                    // do the calculation
+                    productInventory.setQuantity(productInventory.getQuantity() - entry.getValue());
+                    productInventoryList.add(productInventory);
+                    subtotal += entry.getValue() * productInventory.getPrice();
+                }
             }
+
         }
 
         iProductInventoryService.saveAll(productInventoryList);

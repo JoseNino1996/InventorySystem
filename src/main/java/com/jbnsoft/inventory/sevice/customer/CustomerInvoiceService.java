@@ -43,13 +43,9 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
 
         double amountDue = getAmountDueInProcessedOrderedQuantity(productOrderList,createOrder);
         customerInvoice.setAmountDue(amountDue);
-        customerInvoice.setTenderedChange(customerInvoice.getAmountTendered() - customerInvoice.getAmountDue());
 
         return customerInvoiceRepository.save(customerInvoice);
     }
-
-
-
 
 
     @Override
@@ -98,8 +94,7 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
     @Override
     public boolean checkTenderedAmount(CustomerInvoice customerInvoice)  {
         if(customerInvoice.getAmountTendered() >= customerInvoice.getAmountDue()) {
-            customerInvoice.setTenderedChange(customerInvoice.getAmountTendered() - customerInvoice.getAmountDue());
-            return true;
+             return true;
         }
         return false;
     }
@@ -110,8 +105,7 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
 
             if(checkTenderedAmount(storedCustomerInvoice)) {
                 newCustomerInvoice.setAmountTendered(storedCustomerInvoice.getAmountTendered());
-                newCustomerInvoice.setTenderedChange(storedCustomerInvoice.getTenderedChange());
-            } else {
+                   } else {
                 throw new Exception("Insufficient entered payment!" + " subtotal is :" + newCustomerInvoice.getAmountDue());
             }
         } else {
@@ -127,8 +121,9 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
         List<ProductInventory> availableProducts = new ArrayList<>();
 
         for (ProductOrder productOrder : productOrders) {
-            ProductInventory productInventory = productInventoryService.validateProductIfAvailable(productOrders, productInventoryService.getListOfProductInventory(), processOrder);
+            Product product = productOrder.getProduct();
 
+            ProductInventory productInventory = productInventoryService.validateProductIfAvailable(product.getId(), productInventoryService.getListOfProductInventory(), processOrder);
             availableProducts.add(productInventory);
 
             productIdAndOrderedQty.put(productInventory.getId(), productOrder.getOrderedQty());

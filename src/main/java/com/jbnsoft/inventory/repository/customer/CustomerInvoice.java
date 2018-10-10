@@ -16,7 +16,6 @@ public class CustomerInvoice {
 
     private double amountTendered;
 
-    private double tenderedChange;
 
 
     @OneToOne(fetch = FetchType.EAGER)
@@ -82,13 +81,6 @@ public class CustomerInvoice {
         this.amountTendered = amountTendered;
     }
 
-    public double getTenderedChange() {
-        return tenderedChange;
-    }
-
-    public void setTenderedChange(double tenderedChange) {
-        this.tenderedChange = tenderedChange;
-    }
 
     @Override
     public String toString() {

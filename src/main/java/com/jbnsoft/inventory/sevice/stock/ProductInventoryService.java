@@ -46,7 +46,7 @@ public class ProductInventoryService implements IProductInventoryService {
     public List<ProductInventory> getListOfProductInventory() {
         List<ProductInventory> listOfProductInventory  = new ArrayList<>();
         for(ProductInventory productInventory : productInventoryRepository.findAll()) {
-            if(productInventory == null) { continue; }
+
             listOfProductInventory.add(productInventory);
         }
         return listOfProductInventory;
@@ -63,22 +63,22 @@ public class ProductInventoryService implements IProductInventoryService {
     }
 
     @Override
-    public ProductInventory validateProductIfAvailable(List<ProductOrder> productOrders, List<ProductInventory> productInventoryList, ProcessOrder processOrder) throws Exception {
-     ProductInventory foundProductInventory = null;
+    public ProductInventory validateProductIfAvailable(Long productOrderId, List<ProductInventory> productInventoryList, ProcessOrder processOrder) throws Exception {
+        ProductInventory foundProductInventory = null;
 
-       for(ProductInventory productInventory : productInventoryList) {
-           Product storedProduct = productInventory.getProduct();
+        for (ProductInventory productInventory : productInventoryList) {
+            Product storedProduct = productInventory.getProduct();
 
-            for(ProductOrder productOrder : productOrders) {
-                Product orderedProduct = productOrder.getProduct();
-
-               if(storedProduct.getId() == orderedProduct.getId()) {
-                   foundProductInventory = productInventory;
-               }
+            if (storedProduct.getId() == productOrderId) {
+                foundProductInventory = productInventory;
             }
-       }
+        }
 
-        return foundProductInventory;
+        if(foundProductInventory != null) {
+            return foundProductInventory;
+        } else {
+            throw new Exception("Product not available");
+        }
     }
 
     @Override

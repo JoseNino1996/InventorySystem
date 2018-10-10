@@ -16,25 +16,4 @@ public abstract class ProcessOrder {
     public abstract double processOrderQuantity(Map<Long, Long> productIdAndOrderedQty,
                                                 List<ProductInventory> productInventoryList) throws Exception;
 
-
-     public ProductInventory checkProductInventoryIfMatchesToOrder(Long id,
-                                                                   List<ProductInventory> fetchedProductInventoryList) throws Exception {
-
-          ProductInventory foundProductInventory =null;
-          for(ProductInventory productInventory :  fetchedProductInventoryList) {
-              Product product = productInventory.getProduct();
-
-              if (product.getId() == id) {
-                  foundProductInventory = productInventory;
-              }
-          }
-          if(foundProductInventory != null) {
-              return foundProductInventory;
-          } else {
-              throw new Exception("Product not available");
-          }
-      }
-
-
-
 }

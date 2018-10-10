@@ -1,13 +1,7 @@
 package com.jbnsoft.inventory.sevice.stock;
 
-
-
-import com.jbnsoft.inventory.repository.product.ProductOrder;
 import com.jbnsoft.inventory.repository.stock.ProductInventory;
 import com.jbnsoft.inventory.sevice.stock.helper.ProcessOrder;
-import org.springframework.jdbc.object.MappingSqlQuery;
-
-
 import java.util.List;
 import java.util.Map;
 
@@ -26,7 +20,7 @@ public interface  IProductInventoryService {
 
 
 
-    ProductInventory validateProductIfAvailable(List<ProductOrder> productOrders, List<ProductInventory> productInventoryList,ProcessOrder processOrder) throws Exception;
+    ProductInventory validateProductIfAvailable(Long id, List<ProductInventory> productInventoryList,ProcessOrder processOrder) throws Exception;
 
 
 }

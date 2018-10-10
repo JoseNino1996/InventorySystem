@@ -20,8 +20,9 @@ public class DeleteOrder extends ProcessOrder {
             for(Map.Entry<Long, Long> entry : productIdAndOrderedQty.entrySet()) {
                 for(ProductInventory productInventory : availableProducts) {
                     Product product = productInventory.getProduct();
+
                     if(product.getId() == entry.getKey()) {
-                        // do the calculation
+
                         productInventory.setQuantity(productInventory.getQuantity()+ entry.getValue());
                         productInventoryList.add(productInventory);
                         subtotal += entry.getValue() * productInventory.getPrice();

@@ -13,6 +13,5 @@ public interface ICustomerInvoiceService  {
     List<CustomerInvoice> findAll();
 
 
-    boolean checkTenderedAmount(CustomerInvoice customerInvoice) ;
 
 }

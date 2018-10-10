@@ -21,12 +21,12 @@ public class CreateOrder extends ProcessOrder {
 
              for(ProductInventory productInventory : availableProducts) {
                 Product product = productInventory.getProduct();
-                if(product.getId() == entry.getKey()) {
-                    // do the calculation
-                    productInventory.setQuantity(productInventory.getQuantity() - entry.getValue());
-                    productInventoryList.add(productInventory);
-                    subtotal += entry.getValue() * productInventory.getPrice();
-                }
+
+                    if(product.getId() == entry.getKey()) {
+                        productInventory.setQuantity(productInventory.getQuantity() - entry.getValue());
+                        productInventoryList.add(productInventory);
+                        subtotal += entry.getValue() * productInventory.getPrice();
+                    }
             }
 
         }

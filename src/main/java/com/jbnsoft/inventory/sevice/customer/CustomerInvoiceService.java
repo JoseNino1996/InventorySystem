@@ -70,8 +70,6 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
         customerInvoice.setAmountDue(amountDue);
 
 
-        validateCustomerPayment(storedCustomerInvoice, customerInvoice);
-
         customerInvoice.setId(storedCustomerInvoice.getId());
         return customerInvoiceRepository.save(customerInvoice);
     }
@@ -91,29 +89,8 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
         return listOfCustomersInvoice;
     }
 
-    @Override
-    public boolean checkTenderedAmount(CustomerInvoice customerInvoice)  {
-        if(customerInvoice.getAmountTendered() >= customerInvoice.getAmountDue()) {
-             return true;
-        }
-        return false;
-    }
 
-    private void validateCustomerPayment(CustomerInvoice storedCustomerInvoice, CustomerInvoice newCustomerInvoice) throws Exception {
-        if(newCustomerInvoice.getAmountTendered()==0) {
-            storedCustomerInvoice.setAmountDue(newCustomerInvoice.getAmountDue());
 
-            if(checkTenderedAmount(storedCustomerInvoice)) {
-                newCustomerInvoice.setAmountTendered(storedCustomerInvoice.getAmountTendered());
-                   } else {
-                throw new Exception("Insufficient entered payment!" + " subtotal is :" + newCustomerInvoice.getAmountDue());
-            }
-        } else {
-            if(!checkTenderedAmount(newCustomerInvoice))  {
-                throw new Exception("Insufficient entered payment!" + " subtotal is :" + newCustomerInvoice.getAmountDue());
-            }
-        }
-    }
 
     private double getAmountDueInProcessedOrderedQuantity(List<ProductOrder> productOrders, ProcessOrder processOrder) throws Exception {
         Map<Long, Long> productIdAndOrderedQty = new HashMap<>();

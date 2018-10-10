@@ -1,4 +1,5 @@
 package com.jbnsoft.inventory.sevice.stock;
+import com.jbnsoft.inventory.repository.customerinvoice.ProductOrder;
 import com.jbnsoft.inventory.repository.product.Product;
 import com.jbnsoft.inventory.repository.stock.ProductInventory;
 import com.jbnsoft.inventory.repository.stock.ProductInventoryRepository;
@@ -73,27 +74,53 @@ public class ProductInventoryService implements IProductInventoryService {
         return productInventory;
     }
 
-    @Override
-    public ProductInventory findProductInventoryByProductId(long id) {
-        return productInventoryRepository.findByProductId(id);
-    }
+
 
     @Override
-    public ProductInventory validateProductIfAvailable(Long productOrderId, List<ProductInventory> productInventoryList, ProcessOrder processOrder) throws Exception {
+    public ProductInventory validateProductIfAvailable(List<ProductOrder> productOrders) throws Exception {
+        List<ProductInventory> productInventoryList = getListOfProductInventory();
         ProductInventory foundProductInventory = null;
 
         for (ProductInventory productInventory : productInventoryList) {
             Product storedProduct = productInventory.getProduct();
 
-            if (storedProduct.getId() == productOrderId) {
-                foundProductInventory = productInventory;
+            for(ProductOrder productOrder : productOrders) {
+                if (storedProduct.getId() == productOrder.getId()) {
+                    foundProductInventory = productInventory;
+                    break;
+                }
             }
         }
+
         if(foundProductInventory != null) {
+
             return foundProductInventory;
+
         } else {
+
             throw new Exception("Product not available");
+
         }
+    }
+
+    @Override
+    public ProductInventory findProductInventoryByProductId(Long productId) {
+        return productInventoryRepository.findByProductId(productId);
+    }
+
+    @Override
+    public ProductInventory findProductInventoryByProductId(long productId, List<ProductInventory> productInventoryList) {
+        ProductInventory foundProductInventory = null;
+            for (ProductInventory productInventory : productInventoryList) {
+                Product storedProduct = productInventory.getProduct();
+
+                    if (storedProduct.getId() ==productId) {
+                        foundProductInventory = productInventory;
+                        break;
+                    }
+            }
+
+        return foundProductInventory;
     }
 
     @Override

@@ -50,10 +50,8 @@ public class ProductInventoryResource  {
     }
 
     @PostMapping("/validateProductOrder")
-    public List<ProductInventory> validateProductOrder(@RequestBody List<ProductOrder> productOrders) {
-
-        return  null ;
-
+    public ProductInventory validateProductOrder(@RequestBody List<ProductOrder> productOrders) throws Exception {
+            return productInventoryService.validateProductIfAvailable(productOrders) ;
     }
 
 }

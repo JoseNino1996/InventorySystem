@@ -1,5 +1,6 @@
 package com.jbnsoft.inventory.sevice.stock;
 
+import com.jbnsoft.inventory.repository.customerinvoice.ProductOrder;
 import com.jbnsoft.inventory.repository.stock.ProductInventory;
 import com.jbnsoft.inventory.sevice.stock.helper.ProcessOrder;
 import java.util.List;
@@ -17,11 +18,12 @@ public interface  IProductInventoryService {
 
       ProductInventory addProductQuantity(ProductInventory productInventory);
 
-      ProductInventory findProductInventoryByProductId(long id);
+      ProductInventory findProductInventoryByProductId(long id, List<ProductInventory> productInventoryList);
+
+      ProductInventory validateProductIfAvailable(List<ProductOrder> productOrders) throws Exception;
 
 
-
-      ProductInventory validateProductIfAvailable(Long id, List<ProductInventory> productInventoryList,ProcessOrder processOrder) throws Exception;
+      ProductInventory findProductInventoryByProductId(Long productId);
 
 
 }

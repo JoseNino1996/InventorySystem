@@ -28,8 +28,6 @@ public class ProductOrderService implements  IProductOrderService {
         Product product = productOrder.getProduct();
         ProductInventory productInventory = productInventoryService.findProductInventoryByProductId(product.getId());
 
-
-
         ProductOrder savedProductOrder = productOrderRepository.save(productOrder);
 
         productIdAndOrderQty.put(productInventory.getId(), productOrder.getOrderedQty());

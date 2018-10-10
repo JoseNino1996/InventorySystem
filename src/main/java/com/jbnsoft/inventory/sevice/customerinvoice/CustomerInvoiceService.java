@@ -90,12 +90,14 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
         Map<Long, Long> productIdAndOrderedQty = new HashMap<>();
 
         List<ProductInventory> availableProducts = new ArrayList<>();
-        List<ProductInventory> productInventoryList = productInventoryService.getListOfProductInventory();
+        List<ProductInventory> storedInventoryProduct = productInventoryService.getListOfProductInventory();
+
 
         for (ProductOrder productOrder : productOrders) {
             Product product = productOrder.getProduct();
 
-            ProductInventory productInventory = productInventoryService.validateProductIfAvailable(product.getId(), productInventoryList, processOrder);
+            ProductInventory productInventory = productInventoryService.findProductInventoryByProductId(product.getId(), storedInventoryProduct);
+
             availableProducts.add(productInventory);
 
             productIdAndOrderedQty.put(productInventory.getId(), productOrder.getOrderedQty());

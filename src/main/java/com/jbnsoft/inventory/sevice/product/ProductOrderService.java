@@ -6,10 +6,12 @@ import com.jbnsoft.inventory.repository.product.ProductOrderRepository;
 import com.jbnsoft.inventory.repository.stock.ProductInventory;
 import com.jbnsoft.inventory.sevice.stock.IProductInventoryService;
 import com.jbnsoft.inventory.sevice.stock.helper.CreateOrder;
+import com.jbnsoft.inventory.sevice.stock.helper.ProcessOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -49,4 +51,6 @@ public class ProductOrderService implements  IProductOrderService {
 
         return productOrderRepository.findById(id).orElse(null  );
     }
+
+
 }

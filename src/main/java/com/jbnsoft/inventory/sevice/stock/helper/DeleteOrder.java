@@ -16,7 +16,7 @@ public class DeleteOrder extends ProcessOrder {
 
 
         for(Map.Entry<Long, Long> entry : productIdAndOrderedQty.entrySet()) {
-            ProductInventory productInventory = checkProductInventoryIfExist(entry.getKey(),fetchedProductInventoryList);
+            ProductInventory productInventory = checkProductInventoryIfMatchesToOrder(entry.getKey(),fetchedProductInventoryList);
             productInventory.setQuantity(productInventory.getQuantity() + entry.getValue());
 
             productInventoryList.add(productInventory);

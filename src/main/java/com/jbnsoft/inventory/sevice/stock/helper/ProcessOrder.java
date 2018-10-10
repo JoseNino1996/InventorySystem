@@ -1,4 +1,5 @@
 package com.jbnsoft.inventory.sevice.stock.helper;
+import com.jbnsoft.inventory.repository.product.Product;
 import com.jbnsoft.inventory.repository.stock.ProductInventory;
 import com.jbnsoft.inventory.sevice.stock.IProductInventoryService;
 import com.jbnsoft.inventory.sevice.stock.ProductInventoryService;
@@ -16,15 +17,14 @@ public abstract class ProcessOrder {
                                                 List<ProductInventory> productInventoryList) throws Exception;
 
 
-     protected ProductInventory checkProductInventoryIfExist(Long id,
-                                                             List<ProductInventory> fetchedProductInventoryList) throws Exception {
+     public ProductInventory checkProductInventoryIfMatchesToOrder(Long id,
+                                                                   List<ProductInventory> fetchedProductInventoryList) throws Exception {
 
-          List<ProductInventory> productInventoryList = fetchedProductInventoryList;
           ProductInventory foundProductInventory =null;
+          for(ProductInventory productInventory :  fetchedProductInventoryList) {
+              Product product = productInventory.getProduct();
 
-
-          for(ProductInventory productInventory :  productInventoryList) {
-              if (productInventory.getId() == id) {
+              if (product.getId() == id) {
                   foundProductInventory = productInventory;
               }
           }
@@ -36,9 +36,5 @@ public abstract class ProcessOrder {
       }
 
 
-      public boolean checkProductAvailability(long orderedQuantity, long storedQuantity) {
-         if(orderedQuantity > storedQuantity) return  false;
-         return  true;
-      }
 
 }

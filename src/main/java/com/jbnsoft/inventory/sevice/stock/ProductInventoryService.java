@@ -1,6 +1,9 @@
 package com.jbnsoft.inventory.sevice.stock;
+import com.jbnsoft.inventory.repository.product.Product;
+import com.jbnsoft.inventory.repository.product.ProductOrder;
 import com.jbnsoft.inventory.repository.stock.ProductInventory;
 import com.jbnsoft.inventory.repository.stock.ProductInventoryRepository;
+import com.jbnsoft.inventory.sevice.stock.helper.CreateOrder;
 import com.jbnsoft.inventory.sevice.stock.helper.ProcessOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +16,9 @@ import java.util.Map;
 public class ProductInventoryService implements IProductInventoryService {
     @Autowired
     private ProductInventoryRepository productInventoryRepository;
+
+
+
 
     @Override
     public ProductInventory create(ProductInventory productInventory) {
@@ -54,6 +60,25 @@ public class ProductInventoryService implements IProductInventoryService {
     @Override
     public ProductInventory findProductInvetoryByProductId(Long id) {
         return productInventoryRepository.findByProductId(id);
+    }
+
+    @Override
+    public ProductInventory validateProductIfAvailable(List<ProductOrder> productOrders, List<ProductInventory> productInventoryList, ProcessOrder processOrder) throws Exception {
+     ProductInventory foundProductInventory = null;
+
+       for(ProductInventory productInventory : productInventoryList) {
+           Product storedProduct = productInventory.getProduct();
+
+            for(ProductOrder productOrder : productOrders) {
+                Product orderedProduct = productOrder.getProduct();
+
+               if(storedProduct.getId() == orderedProduct.getId()) {
+                   foundProductInventory = productInventory;
+               }
+            }
+       }
+
+        return foundProductInventory;
     }
 
     @Override

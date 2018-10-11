@@ -69,7 +69,7 @@ public class ProductInventoryService implements IProductInventoryService {
         productInventoryRepository.save(productInventory);
 
         createStockLog(productInventory);
-        System.out.println(productInventory.getPrice());
+       
         return productInventory;
     }
 

@@ -27,8 +27,8 @@ public class StockLogService implements  IStockLogService {
     }
 
     @Override
-    public StockLog update(StockLog stockLog, Long id) {
-        StockLog storedStockLog = findById(id);
+    public StockLog update(StockLog stockLog) {
+        StockLog storedStockLog = findById(stockLog.getId());
         stockLog.setId(storedStockLog.getId());
         return stockLogRepository.save(stockLog);
     }

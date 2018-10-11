@@ -27,9 +27,6 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
     private ProductInventoryService productInventoryService;
 
     @Autowired
-    ProductOrderService productOrderService;
-
-    @Autowired
     private CreateOrder createOrder;
     @Autowired
     private DeleteOrder deleteOrder;
@@ -59,6 +56,7 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
     public CustomerInvoice update(CustomerInvoice customerInvoice) throws Exception {
         CustomerInvoice storedCustomerInvoice =findById(customerInvoice.getId());
         List<ProductOrder> currentOrderList = storedCustomerInvoice.getProductOrderList();
+
         processOrderInProductInventory(currentOrderList, deleteOrder);
 
         List<ProductOrder> newOrderList = customerInvoice.getProductOrderList();
@@ -88,15 +86,15 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
 
     private void  processOrderInProductInventory(List<ProductOrder> productOrders, ProcessOrder processOrder) throws Exception {
         Map<Long, Long> productIdAndOrderedQty = new HashMap<>();
-
         List<ProductInventory> availableProducts = new ArrayList<>();
-        List<ProductInventory> storedInventoryProduct = productInventoryService.getListOfProductInventory();
 
+        List<ProductInventory> storedInventoryProduct = productInventoryService.findAll();
+
+        Map<Long,ProductInventory> mappedProductInventory =  productInventoryService.mapProductInventoryList(storedInventoryProduct);
 
         for (ProductOrder productOrder : productOrders) {
-            Product product = productOrder.getProduct();
 
-            ProductInventory productInventory = productInventoryService.findProductInventoryByProductId(product.getId(), storedInventoryProduct);
+            ProductInventory productInventory = mappedProductInventory.get(productOrder.getProduct().getId());
 
             availableProducts.add(productInventory);
 
@@ -105,6 +103,8 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
 
         productInventoryService.processOrderQuantity(productIdAndOrderedQty, processOrder,availableProducts);
     }
+
+
 
 
 }

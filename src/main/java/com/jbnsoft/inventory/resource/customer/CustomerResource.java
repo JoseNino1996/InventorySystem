@@ -14,30 +14,31 @@ public class CustomerResource {
     private ICustomerService customerService;
 
     @PostMapping("/create")
-    public Customer createCustomer(@RequestBody Customer customer) throws Exception {
+    public Customer create(@RequestBody Customer customer) throws Exception {
 
-            return customerService.saveCustomer(customer);
+            return customerService.save(customer);
 
     }
 
     @GetMapping("/findById")
-    public Customer findCustomerById(@RequestParam Long id) {
+    public Customer findById(@RequestParam Long id) {
         return customerService.findById(id);
     }
 
     @DeleteMapping("/delete")
-    public  void deleteCustomerById(@RequestParam Long id) throws Exception {
-        customerService.deleteCustomer(id);
+    public  void deleteById(@RequestParam Long id) throws Exception {
+        customerService.deleteById(id);
     }
 
     @GetMapping("/findAll")
-    public List<Customer> getListofCustomer() {
-        return  customerService.getListOfCustomer();
+    public List<Customer> findAll() {
+        return  customerService.findAll();
     }
-//    @PostMapping("/update/{id}")
-//    public Customer updateCustomer(@RequestBody Customer customer, @PathVariable("id") Long id) throws Exception {
-//        return  customerService.updateCustomer(customer, id);
-//    }
+
+    @PostMapping("/update")
+    public Customer updateCustomer(@RequestBody Customer customer) throws Exception {
+        return  customerService.update(customer);
+    }
 
 
 }

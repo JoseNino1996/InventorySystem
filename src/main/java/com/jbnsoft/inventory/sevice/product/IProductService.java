@@ -5,11 +5,13 @@ import com.jbnsoft.inventory.repository.product.Product;
 import java.util.List;
 
 public interface IProductService {
-    Product createProduct(Product product);
-    Product updateProduct(Product product, Long id);
+    Product create(Product product);
+    Product update(Product product, Long id);
     Product findById(Long id);
     void deleteById(Long id);
-    List<Product> getListOfProducts();
+    List<Product> findAll();
+    boolean findByName(String name);
+
 
 
 }

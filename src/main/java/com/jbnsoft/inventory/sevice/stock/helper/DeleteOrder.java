@@ -15,19 +15,17 @@ public class DeleteOrder extends ProcessOrder {
                                        List<ProductInventory> availableProducts) {
 
         List<ProductInventory> productInventoryList = new ArrayList<>();
+        Map<Long,ProductInventory> mappedProductInventory  =  productInventoryService.mapProductInventoryList(availableProducts);
 
-            for(Map.Entry<Long, Long> entry : productIdAndOrderedQty.entrySet()) {
-                for(ProductInventory productInventory : availableProducts) {
-                    Product product = productInventory.getProduct();
+        for(Map.Entry<Long, Long> entry : productIdAndOrderedQty.entrySet()) {
+            ProductInventory productInventory = mappedProductInventory.get(entry.getKey());
 
-                    if(product.getId().equals(entry.getKey())) {
-
-                        productInventory.setQuantity(productInventory.getQuantity()+ entry.getValue());
-                        productInventoryList.add(productInventory);
-                    }
-                }
+            if(productInventory.getProduct().getId().equals(entry.getKey())) {
+                productInventory.setQuantity(productInventory.getQuantity() + entry.getValue());
+                productInventoryList.add(productInventory);
+            }
         }
-        iProductInventoryService.saveAll(productInventoryList);
+        productInventoryService.saveAll(productInventoryList);
 
     }
 }

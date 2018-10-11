@@ -1,8 +1,6 @@
 package com.jbnsoft.inventory.resource.stock;
 
 
-import com.jbnsoft.inventory.repository.customerinvoice.ProductOrder;
-import com.jbnsoft.inventory.repository.product.Product;
 import com.jbnsoft.inventory.repository.stock.ProductInventory;
 import com.jbnsoft.inventory.sevice.stock.IProductInventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +27,7 @@ public class ProductInventoryResource  {
 
     @DeleteMapping("/delete/{id}")
     public  void deleteById(@PathVariable("id") Long id) {
-        productInventoryService.delete(id);
+        productInventoryService.deleteById(id);
     }
 
     @PostMapping("/update")
@@ -39,19 +37,19 @@ public class ProductInventoryResource  {
     }
     @GetMapping("/findAll")
     public List<ProductInventory> findAll() {
-        return productInventoryService.getListOfProductInventory();
+        return productInventoryService.findAll();
     }
 
 
     @PostMapping("/addStock")
     public ProductInventory addStock(@RequestBody ProductInventory productInventory) {
 
-        return  productInventoryService.addProductQuantity(productInventory);
+        return  productInventoryService.addStock(productInventory);
     }
 
-    @PostMapping("/validateProductOrder")
-    public ProductInventory validateProductOrder(@RequestBody List<ProductOrder> productOrders) throws Exception {
-            return productInventoryService.validateProductIfAvailable(productOrders) ;
+    @PostMapping("/findByProductId")
+    public ProductInventory validateProductOrder(@RequestParam Long id) throws Exception {
+            return productInventoryService.findProductById(id) ;
     }
 
 }

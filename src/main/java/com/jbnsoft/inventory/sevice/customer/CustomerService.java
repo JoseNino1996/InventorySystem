@@ -17,20 +17,22 @@ public class CustomerService implements ICustomerService{
 
 
     @Override
-    public Customer saveCustomer(Customer customer)  {
+    public Customer save(Customer customer)  {
 
         return customerRepository.save(customer);
     }
 
     @Override
-    public void deleteCustomer(Long id) throws Exception {
+    public Customer update(Customer customer) {
+
+        return customerRepository.save(customer);
+    }
+
+    @Override
+    public void deleteById(Long id){
         Customer customer =findById(id);
-        if(customer != null )  {
-            customerRepository.delete(customer);
-            System.out.println("Customer has been deleted!");
-        } else {
-             throw new Exception("Customer not found");
-        }
+        if(customer == null) { return; }
+        customerRepository.deleteById(customer.getId());
     }
 
     @Override
@@ -39,7 +41,7 @@ public class CustomerService implements ICustomerService{
     }
 
     @Override
-    public List<Customer> getListOfCustomer() {
+    public List<Customer> findAll() {
         List<Customer> listOfCustomers = new ArrayList<>();
         for(Customer customer : customerRepository.findAll()) {
             listOfCustomers.add(customer);

@@ -15,12 +15,12 @@ public class ProductService implements  IProductService{
     ProductRepository productRepository;
 
     @Override
-    public Product createProduct(Product product) {
+    public Product create(Product product) {
         product.setDateCreated(new Date());
         return productRepository.save(product);
     }
     @Override
-    public Product updateProduct(Product product, Long id) {
+    public Product update(Product product, Long id) {
         return productRepository.save(product);
     }
 
@@ -35,11 +35,19 @@ public class ProductService implements  IProductService{
     }
 
     @Override
-    public List<Product> getListOfProducts() {
+    public List<Product> findAll() {
         List<Product> productList = new ArrayList<>();
         for(Product product : productRepository.findAll()) {
             productList.add(product);
         }
         return productList;
+    }
+
+    @Override
+    public boolean findByName(String name) {
+        if(productRepository.findProductByName(name)){
+            return  true;
+        }
+        return false;
     }
 }

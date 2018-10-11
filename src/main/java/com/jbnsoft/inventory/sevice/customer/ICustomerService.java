@@ -8,11 +8,11 @@ import java.util.List;
 
 public interface  ICustomerService {
 
-    Customer saveCustomer(Customer customer) throws Exception;
-
-    void deleteCustomer(Long id) throws Exception;
+    Customer save(Customer customer) throws Exception;
+    Customer update(Customer customer);
+    void deleteById(Long id) throws Exception;
     Customer findById(Long id);
-    List<Customer> getListOfCustomer();
+    List<Customer> findAll();
 
 
 

@@ -20,7 +20,7 @@ public interface  IProductInventoryService {
       ProductInventory addStock(ProductInventory productInventory);
 
 
-      ProductInventory findProductById(long productId);
+      ProductInventory findByProductId(long productId);
 
     Map<Long, ProductInventory> mapProductInventoryList(List<ProductInventory> productInventoryList);
 

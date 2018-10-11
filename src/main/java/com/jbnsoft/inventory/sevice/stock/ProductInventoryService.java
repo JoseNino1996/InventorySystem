@@ -1,5 +1,4 @@
 package com.jbnsoft.inventory.sevice.stock;
-import com.jbnsoft.inventory.repository.product.Product;
 import com.jbnsoft.inventory.repository.stock.ProductInventory;
 import com.jbnsoft.inventory.repository.stock.ProductInventoryRepository;
 import com.jbnsoft.inventory.repository.stock.StockLog;
@@ -24,7 +23,7 @@ public class ProductInventoryService implements IProductInventoryService {
     }
 
     private boolean isAlreadyStored(ProductInventory productInventory) {
-        ProductInventory storedProductInventory = findProductById(productInventory.getProduct().getId());
+        ProductInventory storedProductInventory = findByProductId(productInventory.getProduct().getId());
         if(storedProductInventory != null) {
             return true;
         }
@@ -33,6 +32,9 @@ public class ProductInventoryService implements IProductInventoryService {
 
     @Override
     public ProductInventory update(ProductInventory productInventory) {
+        ProductInventory storedProductInventory = findById(productInventory.getId());
+        productInventory.setQuantity(storedProductInventory.getQuantity());
+
         return productInventoryRepository.save(productInventory);
     }
 
@@ -64,43 +66,38 @@ public class ProductInventoryService implements IProductInventoryService {
     @Override
     public ProductInventory addStock(ProductInventory productInventory) {
         updateProductInventoryDetails(productInventory);
-
-        update(productInventory);
+        productInventoryRepository.save(productInventory);
 
         createStockLog(productInventory);
-
+        System.out.println(productInventory.getPrice());
         return productInventory;
     }
 
     private void createStockLog(ProductInventory productInventory) {
         StockLog stockLog = new StockLog();
+
         stockLog.setDate(new Date());
         stockLog.setAddedQuantity(productInventory.getQuantity());
         stockLog.setProductInventory(productInventory);
+
         stockLogService.create(stockLog);
     }
 
     private void updateProductInventoryDetails(ProductInventory productInventory) {
         ProductInventory storedProductInventory = findById(productInventory.getId());
+
         productInventory.setQuantity(storedProductInventory.getQuantity() + productInventory.getQuantity());
         productInventory.setPrice(storedProductInventory.getPrice());
         productInventory.setProduct(storedProductInventory.getProduct());
     }
 
     @Override
-    public ProductInventory findProductById(long productId) {
+    public ProductInventory findByProductId(long productId) {
+        Map<Long,ProductInventory> mappedProductInventoryList =  mapProductInventoryList(findAll());
+        ProductInventory productInventory = mappedProductInventoryList.get(productId);
 
-        ProductInventory foundProductInventory = null;
-            for (ProductInventory productInventory : productInventoryRepository.findAll()) {
-                Product storedProduct = productInventory.getProduct();
+        return  productInventory;
 
-                    if (storedProduct.getId().equals(productId)) {
-                        foundProductInventory = productInventory;
-                        break;
-                    }
-            }
-
-        return foundProductInventory;
     }
 
     @Override
@@ -108,7 +105,7 @@ public class ProductInventoryService implements IProductInventoryService {
         Map<Long,ProductInventory> mappedProductInventory = new HashMap<>();
 
         for(ProductInventory productInventory : productInventoryList) {
-            mappedProductInventory.put(productInventory.getId(),productInventory);
+            mappedProductInventory.put(productInventory.getProduct().getId(),productInventory);
         }
         return  mappedProductInventory;
     }

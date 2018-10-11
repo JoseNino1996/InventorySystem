@@ -47,9 +47,9 @@ public class ProductInventoryResource  {
         return  productInventoryService.addStock(productInventory);
     }
 
-    @PostMapping("/findByProductId")
-    public ProductInventory validateProductOrder(@RequestParam Long id) throws Exception {
-            return productInventoryService.findProductById(id) ;
+    @GetMapping("/findByProductId")
+    public ProductInventory findByProductId(@RequestParam Long id){
+            return productInventoryService.findByProductId(id) ;
     }
 
 }

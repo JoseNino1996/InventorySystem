@@ -18,17 +18,13 @@ public class CreateOrder extends ProcessOrder {
         Map<Long,ProductInventory> mappedProductInventory  =  productInventoryService.mapProductInventoryList(availableProducts);
 
         for(Map.Entry<Long, Long> entry : productIdAndOrderedQty.entrySet()) {
-                    ProductInventory productInventory = mappedProductInventory.get(entry.getKey());
-                    
-                    if(productInventory.getProduct().getId().equals(entry.getKey())) {
-                        productInventory.setQuantity(productInventory.getQuantity() - entry.getValue());
-                        productInventoryList.add(productInventory);
-                    }
+            ProductInventory productInventory = mappedProductInventory.get(entry.getKey());
+
+            productInventory.setQuantity(productInventory.getQuantity() - entry.getValue());
+            productInventoryList.add(productInventory);
         }
+
         productInventoryService.saveAll(productInventoryList);
    }
-
-
-
 
 }

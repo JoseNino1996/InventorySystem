@@ -1,6 +1,5 @@
 package com.jbnsoft.inventory.sevice.stock.helper;
 
-import com.jbnsoft.inventory.repository.product.Product;
 import com.jbnsoft.inventory.repository.stock.ProductInventory;
 import org.springframework.stereotype.Component;
 
@@ -20,11 +19,10 @@ public class DeleteOrder extends ProcessOrder {
         for(Map.Entry<Long, Long> entry : productIdAndOrderedQty.entrySet()) {
             ProductInventory productInventory = mappedProductInventory.get(entry.getKey());
 
-            if(productInventory.getProduct().getId().equals(entry.getKey())) {
-                productInventory.setQuantity(productInventory.getQuantity() + entry.getValue());
-                productInventoryList.add(productInventory);
-            }
+            productInventory.setQuantity(productInventory.getQuantity() + entry.getValue());
+            productInventoryList.add(productInventory);
         }
+
         productInventoryService.saveAll(productInventoryList);
 
     }

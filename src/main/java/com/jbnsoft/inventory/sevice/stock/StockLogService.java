@@ -14,17 +14,12 @@ public class StockLogService implements  IStockLogService {
     @Autowired
     private StockLogRepository stockLogRepository;
 
-
     @Override
     public StockLog create(StockLog stockLog)  {
 
         return stockLogRepository.save(stockLog);
     }
 
-    @Override
-    public void delete(Long id) {
-        stockLogRepository.deleteById(id);
-    }
 
     @Override
     public StockLog update(StockLog stockLog) {

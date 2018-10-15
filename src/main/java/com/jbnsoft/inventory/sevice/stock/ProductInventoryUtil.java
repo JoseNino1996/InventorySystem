@@ -1,5 +1,6 @@
 package com.jbnsoft.inventory.sevice.stock;
 
+import com.jbnsoft.inventory.repository.customerinvoice.ProductOrder;
 import com.jbnsoft.inventory.repository.stock.ProductInventory;
 import org.springframework.stereotype.Component;
 
@@ -21,6 +22,19 @@ public  final  class ProductInventoryUtil {
             mappedProductInventory.put(productInventory.getProduct().getId(),productInventory);
         }
         return  mappedProductInventory;
+    }
+
+
+    public static Map<Long,Long> getMappedProductIdAndOrderQuantity(List<ProductOrder> productOrders , Map<Long,ProductInventory> mappedProductInventory) {
+        Map<Long, Long> mappedProductIdAndOrderedQuantity = new HashMap<>();
+        for (ProductOrder productOrder : productOrders) {
+
+            ProductInventory productInventory = mappedProductInventory.get(productOrder.getProduct().getId());
+            productOrder.setPrice(productInventory.getPrice());
+
+            mappedProductIdAndOrderedQuantity.put(productInventory.getId(), productOrder.getOrderedQty());
+        }
+        return  mappedProductIdAndOrderedQuantity;
     }
 
 

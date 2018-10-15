@@ -3,20 +3,12 @@ package com.jbnsoft.inventory.sevice.customerinvoice;
 
 import com.jbnsoft.inventory.repository.customerinvoice.CustomerInvoice;
 import com.jbnsoft.inventory.repository.customerinvoice.CustomerInvoiceRepository;
-import com.jbnsoft.inventory.repository.product.Product;
-import com.jbnsoft.inventory.repository.customerinvoice.ProductOrder;
-import com.jbnsoft.inventory.repository.stock.ProductInventory;
 import com.jbnsoft.inventory.sevice.stock.ProductInventoryService;
-import com.jbnsoft.inventory.sevice.stock.helper.CreateOrder;
-import com.jbnsoft.inventory.sevice.stock.helper.DeleteOrder;
-import com.jbnsoft.inventory.sevice.stock.helper.ProcessOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class CustomerInvoiceService implements  ICustomerInvoiceService {
@@ -35,7 +27,7 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
         customerInvoice.getAmountDue();
 
         CustomerInvoice savedCustomerInvoice = customerInvoiceRepository.save(customerInvoice);
-        productInventoryService.processOrderQuantity(customerInvoice.getProductOrderList(),customerInvoice.getTransactionType());
+        productInventoryService.processOrderQuantity(customerInvoice);
 
         return savedCustomerInvoice;
     }
@@ -46,17 +38,15 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
         CustomerInvoice storedCustomerInvoice = findById(id);
 
         customerInvoiceRepository.deleteById(id);
-        productInventoryService.processOrderQuantity( storedCustomerInvoice.getProductOrderList(),storedCustomerInvoice.getTransactionType());
+        productInventoryService.processOrderQuantity( storedCustomerInvoice);
 
     }
 
     @Override
     public CustomerInvoice update(CustomerInvoice customerInvoice)  {
-
+        productInventoryService.processOrderQuantity(customerInvoice);
         CustomerInvoice savedCustomerInvoice = customerInvoiceRepository.save(customerInvoice);
-
-        productInventoryService.processOrderQuantity(customerInvoice.getProductOrderList(),customerInvoice.getTransactionType());
-
+        
         return savedCustomerInvoice;
     }
 

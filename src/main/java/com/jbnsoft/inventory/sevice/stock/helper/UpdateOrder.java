@@ -1,8 +1,6 @@
 package com.jbnsoft.inventory.sevice.stock.helper;
 
-import com.jbnsoft.inventory.repository.customerinvoice.CustomerInvoice;
 import com.jbnsoft.inventory.repository.stock.ProductInventory;
-import com.jbnsoft.inventory.sevice.stock.ProductInventoryUtil;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -10,25 +8,45 @@ import java.util.List;
 import java.util.Map;
 
 
-@Component
-public class UpdateOrder extends ProcessOrder {
 
+@Component
+public class UpdateOrder extends  ProcessOrder {
+
+    private Map<Long,Long> currentProductOrder;
+
+    public Map<Long, Long> getCurrentProductOrder() {
+        return currentProductOrder;
+    }
+
+    public void setCurrentProductOrder(Map<Long, Long> currentProductOrder) {
+        this.currentProductOrder = currentProductOrder;
+    }
 
     @Override
-    public void processOrderQuantity(Map<Long, Long> productIdAndOrderedQty,
-                                     Map<Long, ProductInventory> mappedProductInventory) {
-        
+    public void processOrderQuantity(Map<Long, Long> productIdAndOrderedQty, Map<Long, ProductInventory> mappedProductInventory) {
         List<ProductInventory> productInventoryList = new ArrayList<>();
-            // mapped stored list ..
-           //pass the orderList
+
 
         for(Map.Entry<Long, Long> entry : productIdAndOrderedQty.entrySet()) {
-//            ProductInventory productInventory = mappedProductInventory.get(entry.getKey());
-//            productInventory.setQuantity(productInventory.getQuantity() - entry.getValue());
-//            productInventoryList.add(productInventory);
 
+            ProductInventory productInventory = mappedProductInventory.get(entry.getKey());
 
+            Long currentOrderQuantity = currentProductOrder.get(productInventory.getProduct().getId());
+
+            if(currentOrderQuantity != null) {
+                if(entry.getValue() > currentOrderQuantity) {
+                    productInventory.setQuantity(productInventory.getQuantity() - ( entry.getValue() - currentOrderQuantity) );
+                }else if(entry.getValue() < currentOrderQuantity) {
+                    productInventory.setQuantity(productInventory.getQuantity() + (currentOrderQuantity - entry.getValue()));
+                }
+                productInventoryList.add(productInventory);
+                continue;
+            }
+
+           productInventory.setQuantity(productInventory.getQuantity() - entry.getValue());
+            productInventoryList.add(productInventory);
         }
 
+        productInventoryService.saveAll(productInventoryList);
     }
 }

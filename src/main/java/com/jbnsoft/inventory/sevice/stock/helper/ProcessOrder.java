@@ -15,8 +15,7 @@ import java.util.Map;
 public abstract class ProcessOrder {
     @Autowired
     protected ProductInventoryService productInventoryService;
-    @Autowired
-    CustomerInvoiceService customerInvoiceService;
+
     public abstract void processOrderQuantity(Map<Long, Long> productIdAndOrderedQty,
                                                 Map<Long,ProductInventory> mappedProductInventory) ;
 

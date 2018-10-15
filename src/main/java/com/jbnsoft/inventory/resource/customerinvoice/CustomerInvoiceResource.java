@@ -18,12 +18,14 @@ public class CustomerInvoiceResource {
 
     @PostMapping("/create")
     public CustomerInvoice create(@RequestBody CustomerInvoice customerInvoice) throws Exception {
-        customerInvoice.getDate();
+
         return  customerInvoiceService.create(customerInvoice);
     }
 
     @PostMapping("/update")
     public CustomerInvoice update(@RequestBody CustomerInvoice customerInvoice) throws Exception {
+
+
         return  customerInvoiceService.update(customerInvoice);
     }
 
@@ -38,7 +40,7 @@ public class CustomerInvoiceResource {
     }
 
     @GetMapping("/findAll")
-    public List<CustomerInvoice> getListofCustomersInvoice() {
+    public List<CustomerInvoice> findAll() {
         return customerInvoiceService.findAll();
     }
 

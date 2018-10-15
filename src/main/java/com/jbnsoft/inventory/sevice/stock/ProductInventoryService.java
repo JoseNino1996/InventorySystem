@@ -1,8 +1,12 @@
 package com.jbnsoft.inventory.sevice.stock;
+import com.jbnsoft.inventory.repository.customerinvoice.ProductOrder;
+import com.jbnsoft.inventory.repository.customerinvoice.Transaction;
 import com.jbnsoft.inventory.repository.stock.ProductInventory;
 import com.jbnsoft.inventory.repository.stock.ProductInventoryRepository;
 import com.jbnsoft.inventory.repository.stock.StockLog;
-import com.jbnsoft.inventory.sevice.stock.helper.ProcessOrder;
+import com.jbnsoft.inventory.sevice.stock.helper.CreateOrder;
+import com.jbnsoft.inventory.sevice.stock.helper.DeleteOrder;
+import com.jbnsoft.inventory.sevice.stock.helper.UpdateOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +16,12 @@ import java.util.*;
 public class ProductInventoryService implements IProductInventoryService {
     @Autowired
     private ProductInventoryRepository productInventoryRepository;
-
+    @Autowired
+    private CreateOrder createOrder;
+    @Autowired
+    private DeleteOrder deleteOrder;
+    @Autowired
+    private UpdateOrder updateOrder;
     @Autowired
     StockLogService stockLogService;
 
@@ -59,9 +68,41 @@ public class ProductInventoryService implements IProductInventoryService {
     }
 
     @Override
-    public void processOrderQuantity(Map<Long, Long> productIdAndOrderedQty, ProcessOrder processOrder, List<ProductInventory> productInventoryList) throws Exception {
-         processOrder.processOrderQuantity(productIdAndOrderedQty,productInventoryList);
+    public void processOrderQuantity(List<ProductOrder> productOrders, String transactionType)  {
+
+
+        List<ProductInventory> productInventoryList = findAll();
+        Map<Long,ProductInventory> mappedProductInventory = ProductInventoryUtil.getMappedProductInventory(productInventoryList);
+
+        Map<Long, Long> mappedProductIdAndOrderedQuantity = getMappedProductIdAndOrderQuantity(productOrders,mappedProductInventory);
+
+        if(transactionType.equalsIgnoreCase(String.valueOf(Transaction.CREATE))) {
+
+            createOrder.processOrderQuantity(mappedProductIdAndOrderedQuantity, mappedProductInventory);
+
+        }else if(transactionType.equalsIgnoreCase(String.valueOf(Transaction.DELETE))) {
+
+            deleteOrder.processOrderQuantity(mappedProductIdAndOrderedQuantity,mappedProductInventory);
+
+        } else if (transactionType.equalsIgnoreCase(String.valueOf(Transaction.UPDATE))){
+
+            updateOrder.processOrderQuantity(mappedProductIdAndOrderedQuantity,mappedProductInventory);
+        }
+
     }
+
+    public Map<Long,Long> getMappedProductIdAndOrderQuantity(List<ProductOrder> productOrders , Map<Long,ProductInventory> mappedProductInventory) {
+        Map<Long, Long> mappedProductIdAndOrderedQuantity = new HashMap<>();
+        for (ProductOrder productOrder : productOrders) {
+
+            ProductInventory productInventory = mappedProductInventory.get(productOrder.getProduct().getId());
+             productOrder.setPrice(productInventory.getPrice());
+
+            mappedProductIdAndOrderedQuantity.put(productInventory.getId(), productOrder.getOrderedQty());
+        }
+        return  mappedProductIdAndOrderedQuantity;
+    }
+
 
     @Override
     public ProductInventory addStock(ProductInventory productInventory) {
@@ -93,24 +134,12 @@ public class ProductInventoryService implements IProductInventoryService {
 
     @Override
     public ProductInventory findByProductId(long productId) {
-        Map<Long,ProductInventory> mappedProductInventoryList =  mapProductInventoryList(findAll());
+        Map<Long,ProductInventory> mappedProductInventoryList = ProductInventoryUtil.getMappedProductInventory(findAll());
         ProductInventory productInventory = mappedProductInventoryList.get(productId);
 
         return  productInventory;
 
     }
-
-    @Override
-    public Map<Long, ProductInventory> mapProductInventoryList(List<ProductInventory> productInventoryList) {
-        Map<Long,ProductInventory> mappedProductInventory = new HashMap<>();
-
-        for(ProductInventory productInventory : productInventoryList) {
-            mappedProductInventory.put(productInventory.getProduct().getId(),productInventory);
-        }
-        return  mappedProductInventory;
-    }
-
-
 
     @Override
     public void saveAll(Iterable<ProductInventory> productInventories) {

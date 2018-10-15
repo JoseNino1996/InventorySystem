@@ -13,8 +13,8 @@ public class CustomerInvoice {
     private Long id;
     private double amountDue;
     private Date date;
-
     private double amountTendered;
+    private String transactionType;
 
 
 
@@ -25,9 +25,8 @@ public class CustomerInvoice {
     @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE}, fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_invoice_id")
     private List<ProductOrder> productOrderList;
-    public CustomerInvoice() {
 
-    }
+
     public Long getId() {
         return id;
     }
@@ -57,6 +56,10 @@ public class CustomerInvoice {
     }
 
     public double getAmountDue() {
+        for(ProductOrder productOrder : getProductOrderList()) {
+            amountDue += productOrder.getPrice() * productOrder.getOrderedQty() ;
+        }
+
         return amountDue;
     }
 
@@ -81,6 +84,13 @@ public class CustomerInvoice {
         this.amountTendered = amountTendered;
     }
 
+    public String getTransactionType() {
+        return transactionType;
+    }
+
+    public void setTransactionType(String transactionType) {
+        this.transactionType = transactionType;
+    }
 
     @Override
     public String toString() {

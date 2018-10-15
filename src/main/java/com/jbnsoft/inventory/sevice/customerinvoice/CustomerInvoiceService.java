@@ -26,44 +26,37 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
     @Autowired
     private ProductInventoryService productInventoryService;
 
-    @Autowired
-    private CreateOrder createOrder;
-    @Autowired
-    private DeleteOrder deleteOrder;
 
 
     @Override
-    public CustomerInvoice create(CustomerInvoice customerInvoice) throws Exception {
-        List<ProductOrder> productOrderList = customerInvoice.getProductOrderList();
+    public CustomerInvoice create(CustomerInvoice customerInvoice) {
+
+        customerInvoice.getDate();
+        customerInvoice.getAmountDue();
 
         CustomerInvoice savedCustomerInvoice = customerInvoiceRepository.save(customerInvoice);
+        productInventoryService.processOrderQuantity(customerInvoice.getProductOrderList(),customerInvoice.getTransactionType());
 
-        processOrderInProductInventory(productOrderList,createOrder);
         return savedCustomerInvoice;
     }
 
 
     @Override
-    public void delete(Long id) throws Exception {
+    public void delete(Long id) {
         CustomerInvoice storedCustomerInvoice = findById(id);
-        List<ProductOrder> productOrderList = storedCustomerInvoice.getProductOrderList();
 
         customerInvoiceRepository.deleteById(id);
-        processOrderInProductInventory(productOrderList,deleteOrder);
+        productInventoryService.processOrderQuantity( storedCustomerInvoice.getProductOrderList(),storedCustomerInvoice.getTransactionType());
+
     }
 
     @Override
-    public CustomerInvoice update(CustomerInvoice customerInvoice) throws Exception {
-        CustomerInvoice storedCustomerInvoice =findById(customerInvoice.getId());
-        List<ProductOrder> currentOrderList = storedCustomerInvoice.getProductOrderList();
-
-        processOrderInProductInventory(currentOrderList, deleteOrder);
-
-        List<ProductOrder> newOrderList = customerInvoice.getProductOrderList();
+    public CustomerInvoice update(CustomerInvoice customerInvoice)  {
 
         CustomerInvoice savedCustomerInvoice = customerInvoiceRepository.save(customerInvoice);
 
-        processOrderInProductInventory(newOrderList,createOrder);
+        productInventoryService.processOrderQuantity(customerInvoice.getProductOrderList(),customerInvoice.getTransactionType());
+
         return savedCustomerInvoice;
     }
 
@@ -82,27 +75,5 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
         }
         return listOfCustomersInvoice;
     }
-
-
-    private void  processOrderInProductInventory(List<ProductOrder> productOrders, ProcessOrder processOrder) throws Exception {
-        Map<Long, Long> productIdAndOrderedQty = new HashMap<>();
-        List<ProductInventory> availableProducts = new ArrayList<>();
-
-        Map<Long,ProductInventory> mappedProductInventory = productInventoryService.mapProductInventoryList(productInventoryService.findAll());
-
-        for (ProductOrder productOrder : productOrders) {
-
-            ProductInventory productInventory = mappedProductInventory.get(productOrder.getProduct().getId());
-
-            availableProducts.add(productInventory);
-
-            productIdAndOrderedQty.put(productInventory.getId(), productOrder.getOrderedQty());
-        }
-
-        productInventoryService.processOrderQuantity(productIdAndOrderedQty, processOrder,availableProducts);
-    }
-
-
-
 
 }

@@ -2,6 +2,7 @@ package com.jbnsoft.inventory.repository.customerinvoice;
 
 
 import com.jbnsoft.inventory.repository.product.Product;
+import com.jbnsoft.inventory.repository.stock.ProductInventory;
 
 
 import javax.persistence.*;
@@ -12,7 +13,7 @@ public class ProductOrder {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private long orderedQty;
-
+    private double price;
 
     @OneToOne( fetch = FetchType.EAGER)
     private Product product;
@@ -31,6 +32,14 @@ public class ProductOrder {
 
     public void setOrderedQty(long orderedQty) {
         this.orderedQty = orderedQty;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
 

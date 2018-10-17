@@ -8,7 +8,6 @@ import com.jbnsoft.inventory.repository.stock.StockLog;
 import com.jbnsoft.inventory.sevice.customerinvoice.CustomerInvoiceService;
 import com.jbnsoft.inventory.sevice.stock.helper.CreateOrder;
 import com.jbnsoft.inventory.sevice.stock.helper.DeleteOrder;
-import com.jbnsoft.inventory.sevice.stock.helper.ProcessOrder;
 import com.jbnsoft.inventory.sevice.stock.helper.UpdateOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -80,28 +79,24 @@ public class ProductInventoryService implements IProductInventoryService {
         Map<Long,ProductInventory> mappedProductInventory = ProductInventoryUtil.getMappedProductInventory(productInventoryList);
         Map<Long, Long> mappedProductIdAndOrderedQuantity = ProductInventoryUtil.getMappedProductIdAndOrderQuantity(productOrders,mappedProductInventory);
 
-        if(transactionType.equalsIgnoreCase(String.valueOf(Transaction.CREATE))) {
+        if(transactionType.equals(Transaction.CREATE.getTransactionType())) {
 
             createOrder.processOrderQuantity(mappedProductIdAndOrderedQuantity, mappedProductInventory);
 
-        }else if(transactionType.equalsIgnoreCase(String.valueOf(Transaction.DELETE))) {
+        }else if(transactionType.equals(Transaction.DELETE.getTransactionType())) {
 
             deleteOrder.processOrderQuantity(mappedProductIdAndOrderedQuantity,mappedProductInventory);
 
-        } else if (transactionType.equalsIgnoreCase(String.valueOf(Transaction.UPDATE))){
+        } else if (transactionType.equals(Transaction.UPDATE.getTransactionType())){
             CustomerInvoice storedCustomerInvoice = customerInvoiceService.findById(customerInvoice.getId());
 
-            Map<Long,Long> mappedCurrentProductOrder = ProductInventoryUtil.getMappedProductIdAndOrderQuantity(storedCustomerInvoice.getProductOrderList(), mappedProductInventory);
-            updateOrder.setCurrentProductOrder(mappedCurrentProductOrder);
+            Map<Long,Long> existingProductIdAndOrderQuantity = ProductInventoryUtil.getMappedProductIdAndOrderQuantity(storedCustomerInvoice.getProductOrderList(), mappedProductInventory);
+            updateOrder.setExistingProductIdAndOrderQuantity(existingProductIdAndOrderQuantity);
 
             updateOrder.processOrderQuantity(mappedProductIdAndOrderedQuantity,mappedProductInventory);
         }
 
     }
-
-
-
-
 
 
 

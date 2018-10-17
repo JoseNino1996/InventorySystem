@@ -12,14 +12,11 @@ import java.util.Map;
 @Component
 public class UpdateOrder extends  ProcessOrder {
 
-    private Map<Long,Long> currentProductOrder;
+    private Map<Long,Long> existingProductIdAndOrderQuantity;
 
-    public Map<Long, Long> getCurrentProductOrder() {
-        return currentProductOrder;
-    }
 
-    public void setCurrentProductOrder(Map<Long, Long> currentProductOrder) {
-        this.currentProductOrder = currentProductOrder;
+    public void setExistingProductIdAndOrderQuantity(Map<Long, Long> existingProductIdAndOrderQuantity) {
+        this.existingProductIdAndOrderQuantity = existingProductIdAndOrderQuantity;
     }
 
     @Override
@@ -31,13 +28,13 @@ public class UpdateOrder extends  ProcessOrder {
 
             ProductInventory productInventory = mappedProductInventory.get(entry.getKey());
 
-            Long currentOrderQuantity = currentProductOrder.get(productInventory.getProduct().getId());
+            Long currentOrderQuantity = existingProductIdAndOrderQuantity.get(productInventory.getProduct().getId());
 
             if(currentOrderQuantity != null) {
                 if(entry.getValue() > currentOrderQuantity) {
                     productInventory.setQuantity(productInventory.getQuantity() - ( entry.getValue() - currentOrderQuantity) );
                 }else if(entry.getValue() < currentOrderQuantity) {
-                    productInventory.setQuantity(productInventory.getQuantity() + (currentOrderQuantity - entry.getValue()));
+                    productInventory.setQuantity(productInventory.getQuantity() + (currentOrderQuantity - entry.getValue()) );
                 }
                 productInventoryList.add(productInventory);
                 continue;

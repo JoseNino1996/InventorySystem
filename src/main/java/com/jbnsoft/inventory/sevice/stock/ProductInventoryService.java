@@ -72,12 +72,13 @@ public class ProductInventoryService implements IProductInventoryService {
     }
 
     @Override
-    public void processOrderQuantity(CustomerInvoice customerInvoice)  {
-        List<ProductOrder> productOrders = customerInvoice.getProductOrderList();
-        String transactionType = customerInvoice.getTransactionType();
+    public void processOrderQuantity(String transactionType, List<ProductOrder>... productOrders)  {
+
+        List<ProductOrder>  newOrders =  productOrders[0];
+
         List<ProductInventory> productInventoryList = findAll();
         Map<Long,ProductInventory> mappedProductInventory = ProductInventoryUtil.getMappedProductInventory(productInventoryList);
-        Map<Long, Long> mappedProductIdAndOrderedQuantity = ProductInventoryUtil.getMappedProductIdAndOrderQuantity(productOrders,mappedProductInventory);
+        Map<Long, Long> mappedProductIdAndOrderedQuantity = ProductInventoryUtil.getMappedProductIdAndOrderQuantity(newOrders,mappedProductInventory);
 
         if(transactionType.equals(Transaction.CREATE.getTransactionType())) {
 
@@ -88,16 +89,24 @@ public class ProductInventoryService implements IProductInventoryService {
             deleteOrder.processOrderQuantity(mappedProductIdAndOrderedQuantity,mappedProductInventory);
 
         } else if (transactionType.equals(Transaction.UPDATE.getTransactionType())){
-            CustomerInvoice storedCustomerInvoice = customerInvoiceService.findById(customerInvoice.getId());
+            List<ProductOrder> currentOrders = productOrders[1];
 
-            Map<Long,Long> existingProductIdAndOrderQuantity = ProductInventoryUtil.getMappedProductIdAndOrderQuantity(storedCustomerInvoice.getProductOrderList(), mappedProductInventory);
-            updateOrder.setExistingProductIdAndOrderQuantity(existingProductIdAndOrderQuantity);
+            updateOrderQuantity(mappedProductIdAndOrderedQuantity,mappedProductInventory,currentOrders);
 
-            updateOrder.processOrderQuantity(mappedProductIdAndOrderedQuantity,mappedProductInventory);
         }
 
     }
 
+    private void updateOrderQuantity(Map<Long,Long>productIdAndOrderedQuantity
+                                    ,Map<Long,ProductInventory> mappedProductInventory,
+                                     List<ProductOrder> currentOrders) {
+
+        Map<Long,Long> existingProductIdAndOrderQuantity = ProductInventoryUtil.getMappedProductIdAndOrderQuantity(currentOrders, mappedProductInventory);
+        updateOrder.setExistingProductIdAndOrderQuantity(existingProductIdAndOrderQuantity);
+
+        updateOrder.processOrderQuantity(productIdAndOrderedQuantity,mappedProductInventory);
+
+    }
 
 
     @Override

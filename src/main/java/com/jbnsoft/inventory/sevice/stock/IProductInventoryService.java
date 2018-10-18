@@ -21,7 +21,10 @@ public interface  IProductInventoryService {
     void saveAll(Iterable<ProductInventory> productInventories);
 
 
-    void processOrderQuantity(CustomerInvoice customerInvoice) throws Exception;
+    void processOrderQuantity(String transactionType, List<ProductOrder>... productOrders) throws Exception;
+
+
+
 
     ProductInventory addStock(ProductInventory productInventory);
 

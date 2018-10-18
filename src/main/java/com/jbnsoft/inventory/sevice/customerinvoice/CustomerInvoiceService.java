@@ -23,11 +23,8 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
     @Override
     public CustomerInvoice create(CustomerInvoice customerInvoice) {
 
-        customerInvoice.getDate();
-        customerInvoice.getAmountDue();
-
         CustomerInvoice savedCustomerInvoice = customerInvoiceRepository.save(customerInvoice);
-        productInventoryService.processOrderQuantity(customerInvoice);
+        productInventoryService.processOrderQuantity(customerInvoice.getTransactionType(), customerInvoice.getProductOrderList());
 
         return savedCustomerInvoice;
     }
@@ -38,15 +35,17 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
         CustomerInvoice storedCustomerInvoice = findById(id);
 
         customerInvoiceRepository.deleteById(id);
-        productInventoryService.processOrderQuantity( storedCustomerInvoice);
+        productInventoryService.processOrderQuantity(storedCustomerInvoice.getTransactionType(),storedCustomerInvoice.getProductOrderList());
 
     }
 
     @Override
-    public CustomerInvoice update(CustomerInvoice customerInvoice)  {
-        productInventoryService.processOrderQuantity(customerInvoice);
-        CustomerInvoice savedCustomerInvoice = customerInvoiceRepository.save(customerInvoice);
-        
+    public CustomerInvoice update(CustomerInvoice newInvoice)  {
+        CustomerInvoice currentInvoice = findById(newInvoice.getId());
+
+        productInventoryService.processOrderQuantity(newInvoice.getTransactionType(),newInvoice.getProductOrderList(),currentInvoice.getProductOrderList());
+
+        CustomerInvoice savedCustomerInvoice = customerInvoiceRepository.save(newInvoice);
         return savedCustomerInvoice;
     }
 

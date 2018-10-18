@@ -20,30 +20,33 @@ public class UpdateOrder extends  ProcessOrder {
     }
 
     @Override
-    public void processOrderQuantity(Map<Long, Long> productIdAndOrderedQty, Map<Long, ProductInventory> mappedProductInventory) {
+    public void processOrderQuantity(Map<Long, Long> productIdAndOrderedQuantity, Map<Long, ProductInventory> mappedProductInventory) {
         List<ProductInventory> productInventoryList = new ArrayList<>();
 
-
-        for(Map.Entry<Long, Long> entry : productIdAndOrderedQty.entrySet()) {
+        for(Map.Entry<Long, Long> entry : productIdAndOrderedQuantity.entrySet()) {
 
             ProductInventory productInventory = mappedProductInventory.get(entry.getKey());
-
             Long currentOrderQuantity = existingProductIdAndOrderQuantity.get(productInventory.getProduct().getId());
 
             if(currentOrderQuantity != null) {
-                if(entry.getValue() > currentOrderQuantity) {
-                    productInventory.setQuantity(productInventory.getQuantity() - ( entry.getValue() - currentOrderQuantity) );
-                }else if(entry.getValue() < currentOrderQuantity) {
-                    productInventory.setQuantity(productInventory.getQuantity() + (currentOrderQuantity - entry.getValue()) );
-                }
+                processOrder(productInventory, entry.getValue(), currentOrderQuantity);
                 productInventoryList.add(productInventory);
                 continue;
             }
 
-           productInventory.setQuantity(productInventory.getQuantity() - entry.getValue());
+            processOrder(productInventory, entry.getValue(), currentOrderQuantity);
             productInventoryList.add(productInventory);
         }
 
         productInventoryService.saveAll(productInventoryList);
+    }
+
+    private void  processOrder(ProductInventory productInventory,long newOrderQuantity, long currentOrderQuantity ) {
+        if(newOrderQuantity > currentOrderQuantity) {
+            productInventory.setQuantity(productInventory.getQuantity() - (newOrderQuantity - currentOrderQuantity) );
+        }else if(newOrderQuantity < currentOrderQuantity) {
+            productInventory.setQuantity(productInventory.getQuantity() + (currentOrderQuantity - newOrderQuantity) );
+        }
+
     }
 }

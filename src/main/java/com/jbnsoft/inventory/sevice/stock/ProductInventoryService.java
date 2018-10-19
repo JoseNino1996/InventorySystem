@@ -72,11 +72,9 @@ public class ProductInventoryService implements IProductInventoryService {
 
     @Override
     public void processOrderQuantity(String transactionType, List<ProductOrder>... productOrders)  {
-
         List<ProductOrder>  newOrders =  productOrders[0];
 
-        List<ProductInventory> productInventoryList = findAll();
-        Map<Long,ProductInventory> mappedProductInventory = ProductInventoryUtil.getMappedProductInventory(productInventoryList);
+        Map<Long,ProductInventory> mappedProductInventory = ProductInventoryUtil.getMappedProductInventory(findAll());
         Map<Long, Long> mappedProductIdAndOrderedQuantity = ProductInventoryUtil.getMappedProductIdAndOrderQuantity(newOrders,mappedProductInventory);
 
         if(transactionType.equals(Transaction.CREATE.getTransactionType())) {
@@ -101,6 +99,7 @@ public class ProductInventoryService implements IProductInventoryService {
                                      List<ProductOrder> currentOrders) {
 
         Map<Long,Long> existingProductIdAndOrderQuantity = ProductInventoryUtil.getMappedProductIdAndOrderQuantity(currentOrders, mappedProductInventory);
+
         updateOrder.setCurrentProductIdAndOrderedQuantity(existingProductIdAndOrderQuantity);
         updateOrder.processOrderQuantity(productIdAndOrderedQuantity,mappedProductInventory);
 

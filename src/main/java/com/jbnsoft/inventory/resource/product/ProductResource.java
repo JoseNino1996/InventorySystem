@@ -16,7 +16,7 @@ public class ProductResource {
     private IProductService productService;
 
     @PostMapping("/create")
-    public Product create(@RequestBody Product product) {
+    public Product create(@RequestBody Product product) throws Exception {
         return  productService.create(product);
     }
 
@@ -33,7 +33,7 @@ public class ProductResource {
 
     @GetMapping("/findByName")
     public boolean findByName(@RequestParam String name) {
-        return  productService.findByName(name);
+        return  productService.isNameExists(name);
     }
 
     @PostMapping("/update/{id}")

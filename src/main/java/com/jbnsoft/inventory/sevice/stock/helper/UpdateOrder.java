@@ -14,6 +14,8 @@ public class UpdateOrder extends  ProcessOrder {
 
     private Map<Long,Long> currentProductIdAndOrderedQuantity;
 
+    private ProductInventory productInventory;
+
     public void setCurrentProductIdAndOrderedQuantity(Map<Long, Long> currentProductIdAndOrderedQuantity) {
         this.currentProductIdAndOrderedQuantity = currentProductIdAndOrderedQuantity;
     }
@@ -25,35 +27,37 @@ public class UpdateOrder extends  ProcessOrder {
         for(Map.Entry<Long, Long> entry : productIdAndOrderedQuantity.entrySet()) {
             long orderQuantity = entry.getValue();
 
-            ProductInventory productInventory = mappedProductInventory.get( entry.getKey() );
+            productInventory = mappedProductInventory.get( entry.getKey() );
             Long currentOrderQuantity = currentProductIdAndOrderedQuantity.get(productInventory.getProduct().getId());
 
-            if(isCurrentOrderQuantityNotNull(productInventory,orderQuantity,currentOrderQuantity)) {
-                productInventoryList.add(productInventory);
-                continue;
+            if(isCurrentOrderQuantityNotNull(currentOrderQuantity)) {
+                processCurrentOrderQuantity(orderQuantity, currentOrderQuantity);
+            }else {
+                processNewOrderQuantity(orderQuantity,productInventory.getQuantity());
             }
 
-            productInventory.setQuantity(orderQuantity - productInventory.getQuantity());
             productInventoryList.add(productInventory);
         }
 
         productInventoryService.saveAll(productInventoryList);
     }
 
-    private boolean isCurrentOrderQuantityNotNull(ProductInventory productInventory, long orderQuantity, Long currentOrderQuantity) {
-       if(currentOrderQuantity != null) {
-           processOrder(productInventory, orderQuantity, currentOrderQuantity);
-            return   true;
-       }
-        return false;
+    private void processNewOrderQuantity(long orderQuantity, long storedQuantity) {
+        productInventory.setQuantity(orderQuantity - storedQuantity);
     }
 
-    private void  processOrder(ProductInventory productInventory,long orderQuantity, long currentOrderQuantity ) {
-
+    private void processCurrentOrderQuantity(long orderQuantity, long currentOrderQuantity ) {
             if(orderQuantity > currentOrderQuantity) {
                 productInventory.setQuantity(productInventory.getQuantity() - (orderQuantity - currentOrderQuantity) );
             }else if(orderQuantity < currentOrderQuantity) {
                 productInventory.setQuantity(productInventory.getQuantity() + (currentOrderQuantity - orderQuantity) );
             }
     }
+
+    private boolean isCurrentOrderQuantityNotNull( Long currentOrderQuantity) {
+      boolean result = currentOrderQuantity != null ? true : false ;
+
+      return  result;
+    }
+
 }

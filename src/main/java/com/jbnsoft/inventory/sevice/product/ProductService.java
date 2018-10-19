@@ -15,7 +15,9 @@ public class ProductService implements  IProductService{
     ProductRepository productRepository;
 
     @Override
-    public Product create(Product product) {
+    public Product create(Product product) throws Exception {
+        if(isNameExists(product.getName())) { throw new Exception("Product's already stored!");  }
+
         product.setDateCreated(new Date());
         return productRepository.save(product);
     }
@@ -44,10 +46,11 @@ public class ProductService implements  IProductService{
     }
 
     @Override
-    public boolean findByName(String name) {
-        if(productRepository.findProductByName(name)){
-            return  true;
-        }
-        return false;
+    public boolean isNameExists(String name) {
+         Product product = productRepository.findProductByName(name);
+            if(product == null) {
+                return false;
+            }
+             return  true;
     }
 }

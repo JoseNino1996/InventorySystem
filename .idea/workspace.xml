@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="137dfc61-9e91-4931-9a33-5a030e913bce" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/ProductInventoryUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/ProductInventoryUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/UpdateOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/UpdateOrder.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -99,14 +98,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="84" />
-          <entry key="java" value="31886" />
+          <entry key="java" value="32194" />
           <entry key="properties" value="56" />
           <entry key="xml" value="47" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="31886" />
+          <entry key="JAVA" value="32194" />
           <entry key="PLAIN_TEXT" value="84" />
           <entry key="Properties" value="56" />
           <entry key="XML" value="47" />
@@ -119,8 +118,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/UpdateOrder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="40" column="55" lean-forward="true" selection-start-line="40" selection-start-column="55" selection-end-line="40" selection-end-column="55" />
+            <state relative-caret-position="230">
+              <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -739,7 +738,7 @@
       <workItem from="1539871268052" duration="513000" />
       <workItem from="1539915806724" duration="159000" />
       <workItem from="1539916127748" duration="642000" />
-      <workItem from="1539917419251" duration="1691000" />
+      <workItem from="1539917419251" duration="2192000" />
     </task>
     <servers />
   </component>
@@ -776,7 +775,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="232363000" />
+    <option name="totallyTimeSpent" value="232864000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -788,10 +787,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29198185" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29198185" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -800,8 +799,8 @@
       <window_info anchor="bottom" id="Messages" order="0" weight="0.3291815" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" visible="true" weight="0.3291815" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.32851985" />
-      <window_info anchor="bottom" id="Debug" order="4" visible="true" weight="0.3590164" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.32786885" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.3590164" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.3295082" />
@@ -873,7 +872,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/UpdateOrder.java</url>
-          <line>46</line>
+          <line>51</line>
           <properties class="com.jbnsoft.inventory.sevice.stock.helper.UpdateOrder" method="processOrder">
             <option name="EMULATED" value="true" />
           </properties>
@@ -1245,8 +1244,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/UpdateOrder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="40" column="55" lean-forward="true" selection-start-line="40" selection-start-column="55" selection-end-line="40" selection-end-column="55" />
+        <state relative-caret-position="230">
+          <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

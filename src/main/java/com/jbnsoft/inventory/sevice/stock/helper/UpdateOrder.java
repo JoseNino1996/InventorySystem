@@ -29,19 +29,24 @@ public class UpdateOrder extends  ProcessOrder {
             ProductInventory productInventory = mappedProductInventory.get(productId);
             Long currentOrderQuantity = currentProductIdAndOrderedQuantity.get(productInventory.getProduct().getId());
 
-            if(currentOrderQuantity != null) {
-
-                processOrder(productInventory, orderQuantity, currentOrderQuantity);
+            if(isCurrentOrderQuantityNotNull(productInventory,orderQuantity,currentOrderQuantity)) {
                 productInventoryList.add(productInventory);
                 continue;
             }
-
-
+            
             productInventory.setQuantity(orderQuantity - productInventory.getQuantity());
             productInventoryList.add(productInventory);
         }
 
         productInventoryService.saveAll(productInventoryList);
+    }
+
+    private boolean isCurrentOrderQuantityNotNull(ProductInventory productInventory, long orderQuantity, Long currentOrderQuantity) {
+       if(currentOrderQuantity != null) {
+           processOrder(productInventory, orderQuantity, currentOrderQuantity);
+            return   true;
+       }
+        return false;
     }
 
     private void  processOrder(ProductInventory productInventory,long orderQuantity, long currentOrderQuantity ) {

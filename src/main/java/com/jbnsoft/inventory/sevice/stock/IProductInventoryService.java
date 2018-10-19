@@ -7,7 +7,7 @@ import java.util.List;
 
 
 public interface  IProductInventoryService {
-    ProductInventory create(ProductInventory productInventory);
+    ProductInventory create(ProductInventory productInventory) throws Exception;
 
     ProductInventory update(ProductInventory productInventory);
 

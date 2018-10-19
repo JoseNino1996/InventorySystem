@@ -1,6 +1,7 @@
 package com.jbnsoft.inventory.sevice.stock.helper;
 
 import com.jbnsoft.inventory.repository.stock.ProductInventory;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -10,19 +11,18 @@ import java.util.Map;
 
 
 @Component
+@Qualifier("update")
 public class UpdateOrder extends  ProcessOrder {
 
-    private Map<Long,Long> currentProductIdAndOrderedQuantity;
 
     private ProductInventory productInventory;
 
-    public void setCurrentProductIdAndOrderedQuantity(Map<Long, Long> currentProductIdAndOrderedQuantity) {
-        this.currentProductIdAndOrderedQuantity = currentProductIdAndOrderedQuantity;
-    }
+
 
     @Override
     public void processOrderQuantity(Map<Long, Long> productIdAndOrderedQuantity, Map<Long, ProductInventory> mappedProductInventory) {
         List<ProductInventory> productInventoryList = new ArrayList<>();
+        Map<Long,Long> currentProductIdAndOrderedQuantity =  getCurrentProductIdAndOrderedQuantity();
 
         for(Map.Entry<Long, Long> entry : productIdAndOrderedQuantity.entrySet()) {
             long orderQuantity = entry.getValue();
@@ -33,7 +33,7 @@ public class UpdateOrder extends  ProcessOrder {
             if(isCurrentOrderQuantityNotNull(currentOrderQuantity)) {
                 processCurrentOrderQuantity(orderQuantity, currentOrderQuantity);
             }else {
-                processNewOrderQuantity(orderQuantity, productInventory.getQuantity());
+                productInventory.setQuantity(orderQuantity - productInventory.getQuantity());
             }
 
             productInventoryList.add(productInventory);
@@ -42,25 +42,20 @@ public class UpdateOrder extends  ProcessOrder {
         productInventoryService.saveAll(productInventoryList);
     }
 
-
-    private void processNewOrderQuantity(long orderQuantity, long storedQuantity) {
-        productInventory.setQuantity(orderQuantity - storedQuantity);
-
-    }
-
-
     private void processCurrentOrderQuantity(long orderQuantity, long currentOrderQuantity ) {
+            long newOrderQuantity = 0;
+            long storedQuantity= productInventory.getQuantity();
+
             if(orderQuantity > currentOrderQuantity) {
-                productInventory.setQuantity(productInventory.getQuantity() - (orderQuantity - currentOrderQuantity) );
+                newOrderQuantity  = storedQuantity - (orderQuantity - currentOrderQuantity);
             }else if(orderQuantity < currentOrderQuantity) {
-                productInventory.setQuantity(productInventory.getQuantity() + (currentOrderQuantity - orderQuantity) );
+                newOrderQuantity  = storedQuantity + (currentOrderQuantity - orderQuantity);
             }
+            productInventory.setQuantity(newOrderQuantity);
     }
 
     private boolean isCurrentOrderQuantityNotNull( Long currentOrderQuantity) {
-      boolean result = currentOrderQuantity != null ? true : false ;
-
-      return  result;
+      return  currentOrderQuantity != null ? true : false ;
     }
 
 }

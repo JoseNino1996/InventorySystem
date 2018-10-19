@@ -16,13 +16,14 @@ public class CustomerService implements ICustomerService{
     private CustomerRepository customerRepository;
 
     @Override
-    public Customer save(Customer customer)  {
-
+    public Customer save(Customer customer) throws Exception {
+        if(isCustomerExist(customer.getName())) { throw new Exception("Customer's already exist"); }
         return customerRepository.save(customer);
     }
 
     @Override
-    public Customer update(Customer customer) {
+    public Customer update(Customer customer) throws Exception {
+        if(isCustomerExist(customer.getName())) { throw new Exception("Customer's already exist"); }
 
         return customerRepository.save(customer);
     }
@@ -46,6 +47,13 @@ public class CustomerService implements ICustomerService{
             listOfCustomers.add(customer);
         }
         return listOfCustomers;
+    }
+
+    @Override
+    public boolean isCustomerExist(String name) {
+        Customer customer = customerRepository.findByName(name);
+
+        return customer != null ? true : false;
     }
 
 

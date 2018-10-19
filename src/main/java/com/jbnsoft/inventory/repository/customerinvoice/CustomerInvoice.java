@@ -14,8 +14,6 @@ public class CustomerInvoice {
     private double amountDue;
     private Date date;
     private double amountTendered;
-    private String transactionType;
-
 
 
     @OneToOne(fetch = FetchType.EAGER)
@@ -84,13 +82,7 @@ public class CustomerInvoice {
         this.amountTendered = amountTendered;
     }
 
-    public String getTransactionType() {
-        return transactionType;
-    }
 
-    public void setTransactionType(String transactionType) {
-        this.transactionType = transactionType;
-    }
 
     @Override
     public String toString() {

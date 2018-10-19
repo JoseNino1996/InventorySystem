@@ -37,7 +37,7 @@ public class ProductResource {
     }
 
     @PostMapping("/update/{id}")
-    public  Product update(@RequestBody Product product, @PathVariable("id") Long id)  {
+    public  Product update(@RequestBody Product product, @PathVariable("id") Long id) throws Exception {
         return productService.update(product, id);
 
     }

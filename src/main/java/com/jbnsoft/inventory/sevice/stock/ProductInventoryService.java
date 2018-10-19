@@ -4,9 +4,7 @@ import com.jbnsoft.inventory.repository.customerinvoice.Transaction;
 import com.jbnsoft.inventory.repository.stock.ProductInventory;
 import com.jbnsoft.inventory.repository.stock.ProductInventoryRepository;
 import com.jbnsoft.inventory.repository.stock.StockLog;
-import com.jbnsoft.inventory.sevice.stock.helper.CreateOrder;
-import com.jbnsoft.inventory.sevice.stock.helper.DeleteOrder;
-import com.jbnsoft.inventory.sevice.stock.helper.UpdateOrder;
+import com.jbnsoft.inventory.sevice.stock.helper.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,27 +14,29 @@ import java.util.*;
 public class ProductInventoryService implements IProductInventoryService {
     @Autowired
     private ProductInventoryRepository productInventoryRepository;
-
-    @Autowired
-    private CreateOrder createOrder;
-    @Autowired
-    private DeleteOrder deleteOrder;
-    @Autowired
-    private UpdateOrder updateOrder;
     @Autowired
     StockLogService stockLogService;
 
+
+     private ProcessOrder processOrder;
+
+
+
     @Override
-    public ProductInventory create(ProductInventory productInventory) {
-        if (isAlreadyStored(productInventory)) return null;
-        return productInventoryRepository.save(productInventory);
+    public ProductInventory create(ProductInventory productInventory) throws Exception {
+        if (isAlreadyStored(productInventory)) {
+            throw new Exception("Product has already an inventory!");
+        }
+
+        ProductInventory savedProductInventory = productInventoryRepository.save(productInventory);
+        createStockLog(productInventory);
+        return savedProductInventory;
     }
 
     private boolean isAlreadyStored(ProductInventory productInventory) {
         ProductInventory storedProductInventory = findByProductId(productInventory.getProduct().getId());
-        if(storedProductInventory == null) { return false; }
 
-        return true;
+        return storedProductInventory == null ? false : true;
     }
 
     @Override
@@ -74,15 +74,15 @@ public class ProductInventoryService implements IProductInventoryService {
 
         if(transactionType.equals(Transaction.CREATE.getTransactionType())) {
 
-            createOrder.processOrderQuantity(mappedProductIdAndOrderedQuantity, mappedProductInventory);
+            processOrder.processOrderQuantity(mappedProductIdAndOrderedQuantity, mappedProductInventory);
 
         }else if(transactionType.equals(Transaction.DELETE.getTransactionType())) {
 
-            deleteOrder.processOrderQuantity(mappedProductIdAndOrderedQuantity,mappedProductInventory);
+            processOrder.processOrderQuantity(mappedProductIdAndOrderedQuantity,mappedProductInventory);
 
         } else if (transactionType.equals(Transaction.UPDATE.getTransactionType())){
             List<ProductOrder> currentOrders = productOrders[1];
-
+        
             updateOrderQuantity(mappedProductIdAndOrderedQuantity,mappedProductInventory,currentOrders);
 
         }
@@ -95,17 +95,16 @@ public class ProductInventoryService implements IProductInventoryService {
 
         Map<Long,Long> existingProductIdAndOrderQuantity = ProductInventoryUtil.getMappedProductIdAndOrderQuantity(currentOrders, mappedProductInventory);
 
-        updateOrder.setCurrentProductIdAndOrderedQuantity(existingProductIdAndOrderQuantity);
-        updateOrder.processOrderQuantity(productIdAndOrderedQuantity,mappedProductInventory);
+        processOrder.setCurrentProductIdAndOrderedQuantity(existingProductIdAndOrderQuantity);
+        processOrder.processOrderQuantity(productIdAndOrderedQuantity,mappedProductInventory);
 
     }
+
 
 
     @Override
     public ProductInventory addStock(ProductInventory productInventory) {
         updateProductInventoryDetails(productInventory);
-        productInventoryRepository.save(productInventory);
-
         createStockLog(productInventory);
 
         return productInventory;
@@ -127,6 +126,7 @@ public class ProductInventoryService implements IProductInventoryService {
         productInventory.setQuantity(storedProductInventory.getQuantity() + productInventory.getQuantity());
         productInventory.setPrice(storedProductInventory.getPrice());
         productInventory.setProduct(storedProductInventory.getProduct());
+        productInventoryRepository.save(productInventory);
     }
 
     @Override

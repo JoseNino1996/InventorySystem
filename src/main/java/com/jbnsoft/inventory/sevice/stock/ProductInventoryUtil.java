@@ -29,7 +29,6 @@ public  final  class ProductInventoryUtil {
         for (ProductOrder productOrder : productOrders) {
 
             ProductInventory productInventory = mappedProductInventory.get(productOrder.getProduct().getId());
-            productOrder.setPrice(productInventory.getPrice());
 
             mappedProductIdAndOrderedQuantity.put(productInventory.getId(), productOrder.getOrderedQty());
         }

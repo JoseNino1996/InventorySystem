@@ -1,6 +1,7 @@
 package com.jbnsoft.inventory.sevice.stock.helper;
 
 import com.jbnsoft.inventory.repository.stock.ProductInventory;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 @Component
+@Qualifier("delete")
 public class DeleteOrder extends ProcessOrder {
     @Override
     public void processOrderQuantity(Map<Long, Long> productIdAndOrderedQty,

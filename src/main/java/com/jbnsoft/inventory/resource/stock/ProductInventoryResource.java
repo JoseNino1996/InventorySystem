@@ -15,7 +15,7 @@ public class ProductInventoryResource  {
     private IProductInventoryService productInventoryService;
 
     @PostMapping("/create")
-    public ProductInventory create(@RequestBody ProductInventory productInventory) {
+    public ProductInventory create(@RequestBody ProductInventory productInventory) throws Exception {
         return  productInventoryService.create(productInventory);
     }
 

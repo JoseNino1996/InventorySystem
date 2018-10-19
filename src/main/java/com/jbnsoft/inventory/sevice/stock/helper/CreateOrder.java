@@ -1,12 +1,16 @@
 package com.jbnsoft.inventory.sevice.stock.helper;
 
 import com.jbnsoft.inventory.repository.stock.ProductInventory;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 @Component
+
+@Qualifier("create")
 public class CreateOrder extends ProcessOrder {
 
     @Override

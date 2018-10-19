@@ -9,11 +9,20 @@ import java.util.Map;
 @Component
 public abstract class ProcessOrder {
     @Autowired
-    protected ProductInventoryService productInventoryService;
+    public ProductInventoryService productInventoryService;
+
+    private Map<Long,Long> currentProductIdAndOrderedQuantity;
+
 
     public abstract void processOrderQuantity(Map<Long, Long> productIdAndOrderedQty,
                                                 Map<Long,ProductInventory> mappedProductInventory) ;
-    
+
+    public void setCurrentProductIdAndOrderedQuantity(Map<Long, Long> currentProductIdAndOrderedQuantity) {
+        this.currentProductIdAndOrderedQuantity = currentProductIdAndOrderedQuantity;
+    }
 
 
+    public Map<Long, Long> getCurrentProductIdAndOrderedQuantity() {
+        return currentProductIdAndOrderedQuantity;
+    }
 }

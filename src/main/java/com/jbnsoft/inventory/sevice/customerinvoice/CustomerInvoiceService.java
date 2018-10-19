@@ -3,6 +3,7 @@ package com.jbnsoft.inventory.sevice.customerinvoice;
 
 import com.jbnsoft.inventory.repository.customerinvoice.CustomerInvoice;
 import com.jbnsoft.inventory.repository.customerinvoice.CustomerInvoiceRepository;
+import com.jbnsoft.inventory.repository.customerinvoice.Transaction;
 import com.jbnsoft.inventory.sevice.stock.ProductInventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +25,7 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
     public CustomerInvoice create(CustomerInvoice customerInvoice) {
 
         CustomerInvoice savedCustomerInvoice = customerInvoiceRepository.save(customerInvoice);
-        productInventoryService.processOrderQuantity(customerInvoice.getTransactionType(), customerInvoice.getProductOrderList());
+        productInventoryService.processOrderQuantity(Transaction.CREATE.getTransactionType(), customerInvoice.getProductOrderList());
 
         return savedCustomerInvoice;
     }
@@ -35,7 +36,7 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
         CustomerInvoice storedCustomerInvoice = findById(id);
 
         customerInvoiceRepository.deleteById(id);
-        productInventoryService.processOrderQuantity(storedCustomerInvoice.getTransactionType(),storedCustomerInvoice.getProductOrderList());
+        productInventoryService.processOrderQuantity(Transaction.DELETE.getTransactionType(),storedCustomerInvoice.getProductOrderList());
 
     }
 
@@ -43,7 +44,7 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
     public CustomerInvoice update(CustomerInvoice newInvoice)  {
         CustomerInvoice currentInvoice = findById(newInvoice.getId());
 
-        productInventoryService.processOrderQuantity(newInvoice.getTransactionType(),newInvoice.getProductOrderList(),currentInvoice.getProductOrderList());
+        productInventoryService.processOrderQuantity(Transaction.UPDATE.getTransactionType(),newInvoice.getProductOrderList(),currentInvoice.getProductOrderList());
 
         CustomerInvoice savedCustomerInvoice = customerInvoiceRepository.save(newInvoice);
         return savedCustomerInvoice;

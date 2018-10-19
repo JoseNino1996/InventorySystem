@@ -22,7 +22,9 @@ public class ProductService implements  IProductService{
         return productRepository.save(product);
     }
     @Override
-    public Product update(Product product, Long id) {
+    public Product update(Product product, Long id) throws Exception {
+        if(isNameExists(product.getName())) { throw new Exception("Product's already stored!");  }
+
         return productRepository.save(product);
     }
 
@@ -48,9 +50,7 @@ public class ProductService implements  IProductService{
     @Override
     public boolean isNameExists(String name) {
          Product product = productRepository.findProductByName(name);
-            if(product == null) {
-                return false;
-            }
-             return  true;
+         return product != null ? true : false;
+
     }
 }

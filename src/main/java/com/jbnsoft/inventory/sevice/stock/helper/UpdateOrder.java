@@ -33,7 +33,7 @@ public class UpdateOrder extends  ProcessOrder {
             if(isCurrentOrderQuantityNotNull(currentOrderQuantity)) {
                 processCurrentOrderQuantity(orderQuantity, currentOrderQuantity);
             }else {
-                processNewOrderQuantity(orderQuantity,productInventory.getQuantity());
+                processNewOrderQuantity(orderQuantity, productInventory.getQuantity());
             }
 
             productInventoryList.add(productInventory);
@@ -42,9 +42,12 @@ public class UpdateOrder extends  ProcessOrder {
         productInventoryService.saveAll(productInventoryList);
     }
 
-    private void processNewOrderQuantity(long orderQuantity, long storedQuantity) {
-        productInventory.setQuantity(orderQuantity - storedQuantity);
+
+    private void processNewOrderQuantity(long orderQuantity, long storedQuanity) {
+        productInventory.setQuantity(orderQuantity- storedQuanity);
+
     }
+
 
     private void processCurrentOrderQuantity(long orderQuantity, long currentOrderQuantity ) {
             if(orderQuantity > currentOrderQuantity) {

@@ -18,5 +18,7 @@ public abstract class ProcessOrder {
 
     public abstract void processOrderQuantity(Map<Long, Long> productIdAndOrderedQty,
                                                 Map<Long,ProductInventory> mappedProductInventory) ;
+    
+
 
 }

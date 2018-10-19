@@ -41,8 +41,6 @@ public class ProductInventoryService implements IProductInventoryService {
 
     @Override
     public ProductInventory update(ProductInventory productInventory) {
-        ProductInventory storedProductInventory = findById(productInventory.getId());
-        productInventory.setQuantity(storedProductInventory.getQuantity());
 
         return productInventoryRepository.save(productInventory);
     }

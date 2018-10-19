@@ -14,7 +14,6 @@ public  final  class ProductInventoryUtil {
 
     private ProductInventoryUtil() { }
 
-
     public static Map<Long, ProductInventory> getMappedProductInventory(List<ProductInventory> productInventoryList) {
         Map<Long,ProductInventory> mappedProductInventory = new HashMap<>();
 

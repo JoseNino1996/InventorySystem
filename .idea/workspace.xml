@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="137dfc61-9e91-4931-9a33-5a030e913bce" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/IProductInventoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/IProductInventoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/ProductInventoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/ProductInventoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/CreateOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/CreateOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/DeleteOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/DeleteOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/ProductInventoryUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/ProductInventoryUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/UpdateOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/UpdateOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jbnsoft/inventory/sevice/customerinvoice/CustomerInvoiceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jbnsoft/inventory/sevice/customerinvoice/CustomerInvoiceService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jbnsoft/inventory/sevice/stock/ProductInventoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jbnsoft/inventory/sevice/stock/ProductInventoryService.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -87,7 +81,7 @@
         <counts>
           <entry key="class" value="31" />
           <entry key="iml" value="1" />
-          <entry key="java" value="732" />
+          <entry key="java" value="738" />
           <entry key="pom" value="1" />
           <entry key="properties" value="2" />
           <entry key="xml" value="5" />
@@ -97,7 +91,7 @@
         <counts>
           <entry key="CLASS" value="31" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="732" />
+          <entry key="JAVA" value="738" />
           <entry key="Properties" value="2" />
           <entry key="XML" value="6" />
         </counts>
@@ -105,14 +99,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="84" />
-          <entry key="java" value="31834" />
+          <entry key="java" value="31886" />
           <entry key="properties" value="56" />
           <entry key="xml" value="47" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="31834" />
+          <entry key="JAVA" value="31886" />
           <entry key="PLAIN_TEXT" value="84" />
           <entry key="Properties" value="56" />
           <entry key="XML" value="47" />
@@ -125,8 +119,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/UpdateOrder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="38" column="13" lean-forward="true" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+            <state relative-caret-position="244">
+              <caret line="40" column="55" lean-forward="true" selection-start-line="40" selection-start-column="55" selection-end-line="40" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -135,19 +129,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/ProcessOrder.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/customerinvoice/CustomerInvoice.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/DeleteOrder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="19" selection-end-column="50" />
+            <state relative-caret-position="174">
+              <caret line="58" selection-start-line="58" selection-end-line="58" />
             </state>
           </provider>
         </entry>
@@ -155,7 +140,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/CreateOrder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
+            <state relative-caret-position="166">
               <caret line="17" column="63" lean-forward="true" selection-start-line="17" selection-start-column="63" selection-end-line="17" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -167,8 +152,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/ProductInventoryService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="104" column="40" selection-start-line="104" selection-start-column="20" selection-end-line="104" selection-end-column="40" />
+            <state relative-caret-position="95">
+              <caret line="104" selection-start-line="104" selection-end-line="104" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -177,28 +162,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/customerinvoice/Transaction.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/ProductInventoryUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
+            <state relative-caret-position="51">
               <caret line="15" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/product/Product.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/customerinvoice/ProductOrder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/stock/ProductInventoryRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+            <state relative-caret-position="578">
+              <caret line="54" column="30" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -206,8 +182,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/stock/ProductInventory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
+            <state relative-caret-position="289">
               <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/customer/Customer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -215,8 +200,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/customerinvoice/CustomerInvoiceService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+            <state relative-caret-position="57">
+              <caret line="45" selection-start-line="45" selection-end-line="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/resource/customerinvoice/CustomerInvoiceResource.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
             </state>
           </provider>
         </entry>
@@ -285,7 +279,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/customerinvoice/Transactions.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/customerinvoice/CustomerInvoice.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/resource/customerinvoice/CustomerInvoiceResource.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/ProductInventoryUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/ProcessOrder.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/customerinvoice/Transaction.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/customerinvoice/CustomerInvoiceService.java" />
@@ -293,6 +286,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/DeleteOrder.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/CreateOrder.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/ProductInventoryService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/ProductInventoryUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/UpdateOrder.java" />
       </list>
     </option>
@@ -321,9 +315,9 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="28" />
-    <option name="y" value="7" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="13" />
+    <option name="y" value="15" />
     <option name="width" value="1300" />
     <option name="height" value="688" />
   </component>
@@ -745,7 +739,7 @@
       <workItem from="1539871268052" duration="513000" />
       <workItem from="1539915806724" duration="159000" />
       <workItem from="1539916127748" duration="642000" />
-      <workItem from="1539917419251" duration="255000" />
+      <workItem from="1539917419251" duration="1691000" />
     </task>
     <servers />
   </component>
@@ -782,7 +776,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="230927000" />
+    <option name="totallyTimeSpent" value="232363000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -794,10 +788,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.36384267" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29198185" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -806,8 +800,8 @@
       <window_info anchor="bottom" id="Messages" order="0" weight="0.3291815" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" visible="true" weight="0.3291815" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.3291815" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.39679715" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.32851985" />
+      <window_info anchor="bottom" id="Debug" order="4" visible="true" weight="0.3590164" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.3295082" />
@@ -863,7 +857,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/UpdateOrder.java</url>
-          <line>22</line>
+          <line>21</line>
           <properties class="com.jbnsoft.inventory.sevice.stock.helper.UpdateOrder" method="processOrderQuantity">
             <option name="EMULATED" value="true" />
           </properties>
@@ -879,7 +873,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/UpdateOrder.java</url>
-          <line>47</line>
+          <line>46</line>
           <properties class="com.jbnsoft.inventory.sevice.stock.helper.UpdateOrder" method="processOrder">
             <option name="EMULATED" value="true" />
           </properties>
@@ -896,6 +890,12 @@
           <line>104</line>
           <properties />
           <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/customerinvoice/CustomerInvoiceService.java</url>
+          <line>43</line>
+          <properties />
+          <option name="timeStamp" value="70" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -1077,13 +1077,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/customer/Customer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/customerinvoice/CustomerInvoiceRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1102,13 +1095,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="214">
           <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/resource/customerinvoice/CustomerInvoiceResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
         </state>
       </provider>
     </entry>
@@ -1143,38 +1129,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/ProductInventoryUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/customerinvoice/CustomerInvoice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="58" selection-start-line="58" selection-end-line="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/IProductInventoryService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/customerinvoice/ProductOrder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="54" column="30" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/ProcessOrder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1199,23 +1160,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/stock/ProductInventory.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/ProcessOrder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+        <state relative-caret-position="51">
+          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/customerinvoice/CustomerInvoiceService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/DeleteOrder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        <state relative-caret-position="183">
+          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="19" selection-end-column="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/CreateOrder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
+        <state relative-caret-position="166">
           <caret line="17" column="63" lean-forward="true" selection-start-line="17" selection-start-column="63" selection-end-line="17" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1223,27 +1184,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/resource/customerinvoice/CustomerInvoiceResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/customerinvoice/CustomerInvoiceService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/ProductInventoryService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="104" column="40" selection-start-line="104" selection-start-column="20" selection-end-line="104" selection-end-column="40" />
+        <state relative-caret-position="95">
+          <caret line="104" selection-start-line="104" selection-end-line="104" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/DeleteOrder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/customerinvoice/CustomerInvoice.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="19" selection-end-column="50" />
+        <state relative-caret-position="174">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/ProductInventoryUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/customerinvoice/ProductOrder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="54" column="30" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/stock/ProductInventory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/customer/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/UpdateOrder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="38" column="13" lean-forward="true" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+        <state relative-caret-position="244">
+          <caret line="40" column="55" lean-forward="true" selection-start-line="40" selection-start-column="55" selection-end-line="40" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

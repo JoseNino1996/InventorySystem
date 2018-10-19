@@ -14,7 +14,6 @@ public class UpdateOrder extends  ProcessOrder {
 
     private Map<Long,Long> currentProductIdAndOrderedQuantity;
 
-
     public void setCurrentProductIdAndOrderedQuantity(Map<Long, Long> currentProductIdAndOrderedQuantity) {
         this.currentProductIdAndOrderedQuantity = currentProductIdAndOrderedQuantity;
     }
@@ -33,12 +32,12 @@ public class UpdateOrder extends  ProcessOrder {
             if(currentOrderQuantity != null) {
 
                 processOrder(productInventory, orderQuantity, currentOrderQuantity);
-
                 productInventoryList.add(productInventory);
                 continue;
             }
 
-            processOrder(productInventory, orderQuantity, currentOrderQuantity);
+
+            productInventory.setQuantity(orderQuantity - productInventory.getQuantity());
             productInventoryList.add(productInventory);
         }
 
@@ -46,12 +45,11 @@ public class UpdateOrder extends  ProcessOrder {
     }
 
     private void  processOrder(ProductInventory productInventory,long orderQuantity, long currentOrderQuantity ) {
-        if(orderQuantity > currentOrderQuantity) {
-            productInventory.setQuantity(productInventory.getQuantity() - (orderQuantity - currentOrderQuantity) );
-        }else if(orderQuantity < currentOrderQuantity) {
-            productInventory.setQuantity(productInventory.getQuantity() + (currentOrderQuantity - orderQuantity) );
-        }
 
-
+            if(orderQuantity > currentOrderQuantity) {
+                productInventory.setQuantity(productInventory.getQuantity() - (orderQuantity - currentOrderQuantity) );
+            }else if(orderQuantity < currentOrderQuantity) {
+                productInventory.setQuantity(productInventory.getQuantity() + (currentOrderQuantity - orderQuantity) );
+            }
     }
 }

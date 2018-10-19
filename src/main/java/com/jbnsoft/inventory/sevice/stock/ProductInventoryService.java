@@ -34,10 +34,9 @@ public class ProductInventoryService implements IProductInventoryService {
 
     private boolean isAlreadyStored(ProductInventory productInventory) {
         ProductInventory storedProductInventory = findByProductId(productInventory.getProduct().getId());
-        if(storedProductInventory != null) {
-            return true;
-        }
-        return false;
+        if(storedProductInventory == null) { return false; }
+
+        return true;
     }
 
     @Override
@@ -50,9 +49,7 @@ public class ProductInventoryService implements IProductInventoryService {
 
     @Override
     public void deleteById(Long id) {
-
         productInventoryRepository.deleteById(id);
-
     }
 
     @Override

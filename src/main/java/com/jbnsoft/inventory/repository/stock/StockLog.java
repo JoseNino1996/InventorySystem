@@ -9,7 +9,7 @@ public class StockLog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Date date = new Date();
+    private Date date;
     private long addedQuantity;
 
 

@@ -43,8 +43,8 @@ public class UpdateOrder extends  ProcessOrder {
     }
 
 
-    private void processNewOrderQuantity(long orderQuantity, long storedQuanity) {
-        productInventory.setQuantity(orderQuantity- storedQuanity);
+    private void processNewOrderQuantity(long orderQuantity, long storedQuantity) {
+        productInventory.setQuantity(orderQuantity - storedQuantity);
 
     }
 

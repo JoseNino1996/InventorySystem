@@ -4,7 +4,6 @@ import com.jbnsoft.inventory.repository.customerinvoice.Transaction;
 import com.jbnsoft.inventory.repository.stock.ProductInventory;
 import com.jbnsoft.inventory.repository.stock.ProductInventoryRepository;
 import com.jbnsoft.inventory.repository.stock.StockLog;
-import com.jbnsoft.inventory.sevice.customerinvoice.CustomerInvoiceService;
 import com.jbnsoft.inventory.sevice.stock.helper.CreateOrder;
 import com.jbnsoft.inventory.sevice.stock.helper.DeleteOrder;
 import com.jbnsoft.inventory.sevice.stock.helper.UpdateOrder;
@@ -17,7 +16,7 @@ import java.util.*;
 public class ProductInventoryService implements IProductInventoryService {
     @Autowired
     private ProductInventoryRepository productInventoryRepository;
-    
+
     @Autowired
     private CreateOrder createOrder;
     @Autowired
@@ -51,7 +50,9 @@ public class ProductInventoryService implements IProductInventoryService {
 
     @Override
     public void deleteById(Long id) {
+
         productInventoryRepository.deleteById(id);
+
     }
 
     @Override
@@ -100,8 +101,7 @@ public class ProductInventoryService implements IProductInventoryService {
                                      List<ProductOrder> currentOrders) {
 
         Map<Long,Long> existingProductIdAndOrderQuantity = ProductInventoryUtil.getMappedProductIdAndOrderQuantity(currentOrders, mappedProductInventory);
-        updateOrder.setExistingProductIdAndOrderQuantity(existingProductIdAndOrderQuantity);
-
+        updateOrder.setCurrentProductIdAndOrderedQuantity(existingProductIdAndOrderQuantity);
         updateOrder.processOrderQuantity(productIdAndOrderedQuantity,mappedProductInventory);
 
     }

@@ -1,6 +1,5 @@
 package com.jbnsoft.inventory.sevice.stock;
 
-import com.jbnsoft.inventory.repository.customerinvoice.CustomerInvoice;
 import com.jbnsoft.inventory.repository.customerinvoice.ProductOrder;
 import com.jbnsoft.inventory.repository.stock.ProductInventory;
 
@@ -22,9 +21,6 @@ public interface  IProductInventoryService {
 
 
     void processOrderQuantity(String transactionType, List<ProductOrder>... productOrders) throws Exception;
-
-
-
 
     ProductInventory addStock(ProductInventory productInventory);
 

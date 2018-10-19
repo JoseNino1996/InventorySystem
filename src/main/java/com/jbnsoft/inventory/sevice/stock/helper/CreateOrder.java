@@ -16,11 +16,9 @@ public class CreateOrder extends ProcessOrder {
         List<ProductInventory> productInventoryList = new ArrayList<>();
 
         for(Map.Entry<Long, Long> entry : productIdAndOrderedQty.entrySet()) {
-            long productId = entry.getKey();
-            long orderQuantity = entry.getValue();
 
-            ProductInventory productInventory = mappedProductInventory.get( productId );
-            productInventory.setQuantity(productInventory.getQuantity() - orderQuantity );
+            ProductInventory productInventory = mappedProductInventory.get(entry.getKey());
+            productInventory.setQuantity(productInventory.getQuantity() - entry.getValue() );
             productInventoryList.add(productInventory);
 
         }

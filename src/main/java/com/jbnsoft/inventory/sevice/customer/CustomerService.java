@@ -29,9 +29,9 @@ public class CustomerService implements ICustomerService{
     }
 
     @Override
-    public void deleteById(Long id){
+    public void deleteById(Long id) throws Exception {
         Customer customer =findById(id);
-        if(customer == null) { return; }
+        if(customer == null) { throw new Exception("Customer not found!"); }
         customerRepository.deleteById(customer.getId());
     }
 

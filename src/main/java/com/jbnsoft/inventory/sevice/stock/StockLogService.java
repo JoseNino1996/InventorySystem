@@ -20,12 +20,6 @@ public class StockLogService implements  IStockLogService {
         return stockLogRepository.save(stockLog);
     }
 
-    @Override
-    public StockLog update(StockLog stockLog) {
-        StockLog storedStockLog = findById(stockLog.getId());
-        stockLog.setId(storedStockLog.getId());
-        return stockLogRepository.save(stockLog);
-    }
 
     @Override
     public StockLog findById(Long id) {

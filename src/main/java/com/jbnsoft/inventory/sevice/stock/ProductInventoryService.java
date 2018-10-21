@@ -4,7 +4,7 @@ import com.jbnsoft.inventory.repository.customerinvoice.Transaction;
 import com.jbnsoft.inventory.repository.stock.ProductInventory;
 import com.jbnsoft.inventory.repository.stock.ProductInventoryRepository;
 import com.jbnsoft.inventory.repository.stock.StockLog;
-import com.jbnsoft.inventory.sevice.stock.helper.*;
+import com.jbnsoft.inventory.sevice.stock.utilities.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,9 +17,8 @@ public class ProductInventoryService implements IProductInventoryService {
     @Autowired
     StockLogService stockLogService;
 
-
-     private ProcessOrder processOrder;
-
+    @Autowired
+     private ProcessOrderUtility processOrder;
 
 
     @Override
@@ -39,8 +38,18 @@ public class ProductInventoryService implements IProductInventoryService {
         return storedProductInventory == null ? false : true;
     }
 
+    private boolean isEmpty(ProductInventory productInventory) {
+
+        return productInventory == null ? true : false;
+    }
+
     @Override
-    public ProductInventory update(ProductInventory productInventory) {
+    public ProductInventory update(ProductInventory productInventory) throws Exception {
+        ProductInventory oldInventory = findById(productInventory.getId());
+
+        if(isEmpty(productInventory)) { throw new Exception("ProductInventory not found!"); }
+
+        productInventory.setQuantity(oldInventory.getQuantity());
 
         return productInventoryRepository.save(productInventory);
     }
@@ -74,15 +83,15 @@ public class ProductInventoryService implements IProductInventoryService {
 
         if(transactionType.equals(Transaction.CREATE.getTransactionType())) {
 
-            processOrder.processOrderQuantity(mappedProductIdAndOrderedQuantity, mappedProductInventory);
+            processOrder.createOrder(mappedProductIdAndOrderedQuantity, mappedProductInventory);
 
         }else if(transactionType.equals(Transaction.DELETE.getTransactionType())) {
 
-            processOrder.processOrderQuantity(mappedProductIdAndOrderedQuantity,mappedProductInventory);
+            processOrder.deleteOrder(mappedProductIdAndOrderedQuantity,mappedProductInventory);
 
         } else if (transactionType.equals(Transaction.UPDATE.getTransactionType())){
             List<ProductOrder> currentOrders = productOrders[1];
-        
+
             updateOrderQuantity(mappedProductIdAndOrderedQuantity,mappedProductInventory,currentOrders);
 
         }
@@ -96,7 +105,7 @@ public class ProductInventoryService implements IProductInventoryService {
         Map<Long,Long> existingProductIdAndOrderQuantity = ProductInventoryUtil.getMappedProductIdAndOrderQuantity(currentOrders, mappedProductInventory);
 
         processOrder.setCurrentProductIdAndOrderedQuantity(existingProductIdAndOrderQuantity);
-        processOrder.processOrderQuantity(productIdAndOrderedQuantity,mappedProductInventory);
+        processOrder.updateOrder(productIdAndOrderedQuantity,mappedProductInventory);
 
     }
 

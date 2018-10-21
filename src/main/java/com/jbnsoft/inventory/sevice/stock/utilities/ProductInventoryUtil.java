@@ -1,4 +1,4 @@
-package com.jbnsoft.inventory.sevice.stock;
+package com.jbnsoft.inventory.sevice.stock.utilities;
 
 import com.jbnsoft.inventory.repository.customerinvoice.ProductOrder;
 import com.jbnsoft.inventory.repository.stock.ProductInventory;

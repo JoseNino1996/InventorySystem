@@ -7,7 +7,7 @@ import java.util.List;
 public interface IStockLogService {
 
     StockLog create(StockLog stockLog) throws Exception;
-    StockLog update(StockLog stockLog);
+
     StockLog findById(Long id);
     List<StockLog> findAll();
 

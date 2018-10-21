@@ -3,6 +3,7 @@ package com.jbnsoft.inventory.sevice.customerinvoice;
 
 import com.jbnsoft.inventory.repository.customerinvoice.CustomerInvoice;
 import com.jbnsoft.inventory.repository.customerinvoice.CustomerInvoiceRepository;
+import com.jbnsoft.inventory.repository.customerinvoice.ProductOrder;
 import com.jbnsoft.inventory.repository.customerinvoice.Transaction;
 import com.jbnsoft.inventory.sevice.stock.ProductInventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,10 +44,11 @@ public class CustomerInvoiceService implements  ICustomerInvoiceService {
     @Override
     public CustomerInvoice update(CustomerInvoice newInvoice)  {
         CustomerInvoice currentInvoice = findById(newInvoice.getId());
-
-        productInventoryService.processOrderQuantity(Transaction.UPDATE.getTransactionType(),newInvoice.getProductOrderList(),currentInvoice.getProductOrderList());
+        List<ProductOrder> currentInvoiceProductOrderList = currentInvoice.getProductOrderList();
 
         CustomerInvoice savedCustomerInvoice = customerInvoiceRepository.save(newInvoice);
+        productInventoryService.processOrderQuantity(Transaction.UPDATE.getTransactionType(),newInvoice.getProductOrderList(),currentInvoiceProductOrderList);
+
         return savedCustomerInvoice;
     }
 

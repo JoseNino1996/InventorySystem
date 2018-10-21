@@ -9,7 +9,7 @@ import java.util.List;
 public interface  IProductInventoryService {
     ProductInventory create(ProductInventory productInventory) throws Exception;
 
-    ProductInventory update(ProductInventory productInventory);
+    ProductInventory update(ProductInventory productInventory) throws Exception;
 
     void deleteById(Long id);
 

@@ -18,7 +18,7 @@ public class ProductInventoryService implements IProductInventoryService {
     StockLogService stockLogService;
 
     @Autowired
-     private ProcessOrderUtility processOrder;
+     private ProcessOrderUtil processOrderUtil;
 
 
     @Override
@@ -83,11 +83,11 @@ public class ProductInventoryService implements IProductInventoryService {
 
         if(transactionType.equals(Transaction.CREATE.getTransactionType())) {
 
-            processOrder.createOrder(mappedProductIdAndOrderedQuantity, mappedProductInventory);
+            processOrderUtil.createOrder(mappedProductIdAndOrderedQuantity, mappedProductInventory);
 
         }else if(transactionType.equals(Transaction.DELETE.getTransactionType())) {
 
-            processOrder.deleteOrder(mappedProductIdAndOrderedQuantity,mappedProductInventory);
+            processOrderUtil.deleteOrder(mappedProductIdAndOrderedQuantity,mappedProductInventory);
 
         } else if (transactionType.equals(Transaction.UPDATE.getTransactionType())){
             List<ProductOrder> currentOrders = productOrders[1];
@@ -104,8 +104,8 @@ public class ProductInventoryService implements IProductInventoryService {
 
         Map<Long,Long> existingProductIdAndOrderQuantity = ProductInventoryUtil.getMappedProductIdAndOrderQuantity(currentOrders, mappedProductInventory);
 
-        processOrder.setCurrentProductIdAndOrderedQuantity(existingProductIdAndOrderQuantity);
-        processOrder.updateOrder(productIdAndOrderedQuantity,mappedProductInventory);
+        processOrderUtil.setCurrentProductIdAndOrderedQuantity(existingProductIdAndOrderQuantity);
+        processOrderUtil.updateOrder(productIdAndOrderedQuantity,mappedProductInventory);
 
     }
 

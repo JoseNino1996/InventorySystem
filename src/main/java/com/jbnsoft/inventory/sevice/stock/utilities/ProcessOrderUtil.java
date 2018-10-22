@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 @Component
-public  class ProcessOrderUtility {
+public  class ProcessOrderUtil {
     @Autowired
     public  ProductInventoryService productInventoryService;
 
@@ -82,13 +82,15 @@ public  class ProcessOrderUtility {
 
 
     private void processCurrentOrderQuantity(long orderQuantity, long currentOrderQuantity ) {
-        long newStoredQuantity = 0;
+        long newStoredQuantity ;
         long storedQuantity= productInventory.getQuantity();
 
         if(orderQuantity > currentOrderQuantity) {
             newStoredQuantity  = storedQuantity - (orderQuantity - currentOrderQuantity);
         }else if(orderQuantity < currentOrderQuantity) {
             newStoredQuantity  = storedQuantity + (currentOrderQuantity - orderQuantity);
+        }else {
+            newStoredQuantity = storedQuantity;
         }
         productInventory.setQuantity(newStoredQuantity);
     }

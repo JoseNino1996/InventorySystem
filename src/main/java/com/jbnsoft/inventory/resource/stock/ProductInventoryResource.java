@@ -31,7 +31,7 @@ public class ProductInventoryResource  {
     }
 
     @PostMapping("/update")
-    public  ProductInventory update(@RequestBody ProductInventory productInventory) {
+    public  ProductInventory update(@RequestBody ProductInventory productInventory) throws Exception {
 
         return  productInventoryService.update(productInventory);
     }

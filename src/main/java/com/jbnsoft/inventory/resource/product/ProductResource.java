@@ -36,9 +36,9 @@ public class ProductResource {
         return  productService.isNameExists(name);
     }
 
-    @PostMapping("/update/{id}")
-    public  Product update(@RequestBody Product product, @PathVariable("id") Long id) throws Exception {
-        return productService.update(product, id);
+    @PostMapping("/update")
+    public  Product update(@RequestBody Product product) throws Exception {
+        return productService.update(product);
 
     }
     @DeleteMapping("/delete")

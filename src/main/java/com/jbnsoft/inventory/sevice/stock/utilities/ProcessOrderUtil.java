@@ -25,7 +25,7 @@ public  class ProcessOrderUtil {
 
         for (Map.Entry<Long, Long> entry : productIdAndOrderedQty.entrySet()) {
 
-            ProductInventory productInventory = mappedProductInventory.get(entry.getKey());
+          ProductInventory productInventory = mappedProductInventory.get(entry.getKey());
 
             productInventory.setQuantity(productInventory.getQuantity() - entry.getValue());
 

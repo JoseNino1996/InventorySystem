@@ -22,11 +22,11 @@ public class ProductService implements  IProductService{
         return productRepository.save(product);
     }
     @Override
-    public Product update(Product product, Long id) throws Exception {
+    public Product update(Product product) throws Exception {
         if(isNameExists(product.getName())) { throw new Exception("Product's already stored!");  }
 
         return productRepository.save(product);
-    }
+}
 
     @Override
     public Product findById(Long id) {

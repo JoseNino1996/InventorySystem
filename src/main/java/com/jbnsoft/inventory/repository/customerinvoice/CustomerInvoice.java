@@ -53,13 +53,13 @@ public class CustomerInvoice {
         return customer;
     }
 
-    public double getAmountDue() {
-        for(ProductOrder productOrder : getProductOrderList()) {
-            amountDue += productOrder.getPrice() * productOrder.getOrderedQty() ;
-        }
-
-        return amountDue;
-    }
+//    public double getAmountDue() {
+//        for(ProductOrder productOrder : getProductOrderList()) {
+//            amountDue += productOrder.getPrice() * productOrder.getOrderedQty() ;
+//        }
+//
+//        return amountDue;
+//    }
 
     public void setCustomer(Customer customer) {
         this.customer = customer;

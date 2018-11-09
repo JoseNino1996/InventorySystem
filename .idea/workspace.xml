@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="137dfc61-9e91-4931-9a33-5a030e913bce" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="137dfc61-9e91-4931-9a33-5a030e913bce" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/resource/stock/ProductInventoryResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/resource/stock/ProductInventoryResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/ProductInventoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/ProductInventoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/utilities/ProcessOrderUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/utilities/ProcessOrderUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jbnsoft/inventory/resource/stock/ProductInventoryResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jbnsoft/inventory/resource/stock/ProductInventoryResource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jbnsoft/inventory/sevice/customer/CustomerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jbnsoft/inventory/sevice/customer/CustomerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jbnsoft/inventory/sevice/customerinvoice/CustomerInvoiceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jbnsoft/inventory/sevice/customerinvoice/CustomerInvoiceService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jbnsoft/inventory/sevice/stock/IProductInventoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jbnsoft/inventory/sevice/stock/IProductInventoryService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jbnsoft/inventory/sevice/stock/ProductInventoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jbnsoft/inventory/sevice/stock/ProductInventoryService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jbnsoft/inventory/sevice/stock/helper/ProcessOrder.class" beforeDir="false" />
+    </list>
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -111,6 +126,7 @@
         </counts>
       </usages-collector>
     </session>
+<<<<<<< HEAD
     <session id="-1692242969">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
@@ -155,28 +171,51 @@
         </counts>
       </usages-collector>
     </session>
+=======
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/resource/customerinvoice/CustomerInvoiceResource.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
               <caret line="21" selection-start-line="21" selection-end-line="21" />
+=======
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/ProductInventoryService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="69">
+              <caret line="77" column="16" selection-start-line="77" selection-start-column="16" selection-end-line="77" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2110#2111#0" expanded="true" />
+                <element signature="e#2167#2168#0" expanded="true" />
+              </folding>
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/utilities/ProcessOrderUtil.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="321">
               <caret line="36" selection-start-line="36" selection-end-line="36" />
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/utilities/ProductInventoryUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/resource/customer/CustomerResource.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
@@ -184,56 +223,102 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+=======
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/resource/stock/ProductInventoryResource.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="22">
+              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/customerinvoice/Transaction.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
               <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+=======
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/resource/product/ProductResource.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/customerinvoice/CustomerInvoiceService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="185">
               <caret line="30" selection-start-line="30" selection-end-line="30" />
+=======
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/utilities/ProcessOrderUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="92" column="47" lean-forward="true" selection-start-line="92" selection-start-column="47" selection-end-line="92" selection-end-column="47" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.7.RELEASE/spring-web-5.0.7.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="219">
               <caret line="140" selection-start-line="140" selection-end-line="140" />
+=======
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/customer/ICustomerService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.0.7.RELEASE/spring-webmvc-5.0.7.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/method/annotation/ServletInvocableHandlerMethod.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="338">
               <caret line="127" selection-start-line="127" selection-end-line="127" />
+=======
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/customerinvoice/CustomerInvoiceService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-145">
+              <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="true">
         <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.0.7.RELEASE/spring-webmvc-5.0.7.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
               <caret line="881" selection-start-line="881" selection-end-line="881" />
+=======
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/customerinvoice/ICustomerInvoiceService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/ProductInventoryService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="134">
@@ -241,15 +326,28 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+=======
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/product/IProductService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/utilities/ProductInventoryUtil.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="321">
               <caret line="28" selection-start-line="28" selection-end-line="28" />
+=======
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/product/ProductService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="20" column="43" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="43" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
             </state>
           </provider>
         </entry>
@@ -267,6 +365,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+<<<<<<< HEAD
       <find>AddS</find>
       <find>setCurrentProductIdAndOrderedQuantity</find>
       <find>ad</find>
@@ -276,11 +375,23 @@
   </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
+=======
+      <find>update</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/product/Product.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/customer/Customer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/stock/ProductInventory.java" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
         <option value="$PROJECT_DIR$/src/test/java/com/jbnsoft/inventory/service/ProcessOrderTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/Inventory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/resource/customer/CustomerInvoiceResource.java" />
@@ -305,11 +416,22 @@
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/resource/customerinvoice/CustomerInvoiceResource.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/customerinvoice/Transaction.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/IProductInventoryService.java" />
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/product/IProductService.java" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/product/ProductRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/stock/StockLog.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/customer/ICustomerService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/customer/CustomerRepository.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/ProductInventoryUtil.java" />
+=======
+        <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/customerinvoice/CustomerInvoice.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/ProductInventoryUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/resource/product/ProductResource.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/product/ProductService.java" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/ProcessOrderFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/IStockLogService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/StockLogService.java" />
@@ -321,6 +443,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/ProcessOrder.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/utilities/ProcessOrder.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/utilities/ProcessOrderUtility.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/resource/stock/ProductInventoryResource.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/resource/product/ProductResource.java" />
@@ -332,6 +455,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/customerinvoice/CustomerInvoiceService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/utilities/ProcessOrderUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/ProductInventoryService.java" />
+=======
+        <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/ProductInventoryService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/resource/stock/ProductInventoryResource.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/customerinvoice/CustomerInvoiceService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/utilities/ProcessOrderUtil.java" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
       </list>
     </option>
   </component>
@@ -350,14 +479,29 @@
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
+<<<<<<< HEAD
       <expand />
+=======
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="inventory-program" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+      </expand>
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
       <select />
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
+<<<<<<< HEAD
     <option name="x" value="25" />
     <option name="width" value="1300" />
     <option name="height" value="690" />
+=======
+    <option name="x" value="27" />
+    <option name="width" value="1300" />
+    <option name="height" value="688" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -365,6 +509,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
+=======
+      <pane id="PackagesPane" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
       <pane id="Scope">
         <subPane subId="Scope 'Default Changelist'; set:Default Changelist; class com.intellij.packageDependencies.ChangeListScope">
           <expand>
@@ -411,11 +559,15 @@
           <select />
         </subPane>
       </pane>
+<<<<<<< HEAD
       <pane id="PackagesPane" />
+=======
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
+<<<<<<< HEAD
               <item name="InventorySystem-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="InventorySystem-master" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -427,27 +579,55 @@
             <path>
               <item name="InventorySystem-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="InventorySystem-master" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="inventoryprogram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventoryprogram" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="inventoryprogram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventoryprogram" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="inventoryprogram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventoryprogram" type="462c0819:PsiDirectoryNode" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
+<<<<<<< HEAD
               <item name="InventorySystem-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="InventorySystem-master" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="inventoryprogram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventoryprogram" type="462c0819:PsiDirectoryNode" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
+<<<<<<< HEAD
               <item name="InventorySystem-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="InventorySystem-master" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="inventoryprogram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventoryprogram" type="462c0819:PsiDirectoryNode" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="inventory" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
+<<<<<<< HEAD
               <item name="InventorySystem-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="InventorySystem-master" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="inventoryprogram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventoryprogram" type="462c0819:PsiDirectoryNode" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -455,8 +635,13 @@
               <item name="repository" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
+<<<<<<< HEAD
               <item name="InventorySystem-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="InventorySystem-master" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="inventoryprogram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventoryprogram" type="462c0819:PsiDirectoryNode" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -465,8 +650,13 @@
               <item name="customer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
+<<<<<<< HEAD
               <item name="InventorySystem-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="InventorySystem-master" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="inventoryprogram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventoryprogram" type="462c0819:PsiDirectoryNode" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -475,8 +665,13 @@
               <item name="customerinvoice" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
+<<<<<<< HEAD
               <item name="InventorySystem-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="InventorySystem-master" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="inventoryprogram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventoryprogram" type="462c0819:PsiDirectoryNode" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -485,8 +680,13 @@
               <item name="product" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
+<<<<<<< HEAD
               <item name="InventorySystem-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="InventorySystem-master" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="inventoryprogram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventoryprogram" type="462c0819:PsiDirectoryNode" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -495,8 +695,13 @@
               <item name="stock" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
+<<<<<<< HEAD
               <item name="InventorySystem-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="InventorySystem-master" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="inventoryprogram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventoryprogram" type="462c0819:PsiDirectoryNode" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -504,62 +709,111 @@
               <item name="resource" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
+<<<<<<< HEAD
               <item name="InventorySystem-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="InventorySystem-master" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="inventoryprogram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventoryprogram" type="462c0819:PsiDirectoryNode" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="inventory" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="resource" type="462c0819:PsiDirectoryNode" />
               <item name="customer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="InventorySystem-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="InventorySystem-master" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="sevice" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="inventoryprogram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventoryprogram" type="462c0819:PsiDirectoryNode" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="inventory" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="resource" type="462c0819:PsiDirectoryNode" />
               <item name="customerinvoice" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="InventorySystem-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="InventorySystem-master" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="sevice" type="462c0819:PsiDirectoryNode" />
+              <item name="customer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="inventoryprogram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventoryprogram" type="462c0819:PsiDirectoryNode" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="inventory" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="resource" type="462c0819:PsiDirectoryNode" />
               <item name="product" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="InventorySystem-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="InventorySystem-master" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="sevice" type="462c0819:PsiDirectoryNode" />
+              <item name="customerinvoice" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="inventoryprogram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventoryprogram" type="462c0819:PsiDirectoryNode" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="inventory" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="resource" type="462c0819:PsiDirectoryNode" />
               <item name="stock" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="InventorySystem-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="InventorySystem-master" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="sevice" type="462c0819:PsiDirectoryNode" />
+              <item name="product" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="inventoryprogram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventoryprogram" type="462c0819:PsiDirectoryNode" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="inventory" type="462c0819:PsiDirectoryNode" />
               <item name="sevice" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
             </path>
             <path>
               <item name="InventorySystem-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="InventorySystem-master" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="stock" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="inventoryprogram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventoryprogram" type="462c0819:PsiDirectoryNode" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="inventory" type="462c0819:PsiDirectoryNode" />
               <item name="sevice" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="customerinvoice" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -588,6 +842,40 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="stock" type="462c0819:PsiDirectoryNode" />
+              <item name="utilities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="inventoryprogram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventoryprogram" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="inventoryprogram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventoryprogram" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="inventoryprogram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventoryprogram" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="inventory" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="inventoryprogram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inventoryprogram" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="inventory" type="462c0819:PsiDirectoryNode" />
+              <item name="resource" type="462c0819:PsiDirectoryNode" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
             </path>
           </expand>
           <select />
@@ -604,12 +892,19 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+<<<<<<< HEAD
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541584747589" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="C:/Program Files/Git/bin/git.exe" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
+=======
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -847,15 +1142,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18389262" />
+=======
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31013617" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info id="Web" order="5" side_tool="true" />
+<<<<<<< HEAD
       <window_info id="Image Layers" order="6" />
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Messages" order="0" weight="0.32786885" />
@@ -863,13 +1166,24 @@
       <window_info anchor="bottom" id="Find" order="2" sideWeight="0.49932885" weight="0.32765958" />
       <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.87986577" visible="true" weight="0.32765958" />
       <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.4986577" weight="0.35886526" />
+=======
+      <window_info anchor="bottom" id="Messages" order="0" weight="0.32786885" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.32786885" />
+      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.32786885" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.3590164" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.3295082" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.3291815" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5013423" side_tool="true" weight="0.35886526" />
+=======
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
       <window_info anchor="bottom" id="Spring" order="12" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="right" id="Bean Validation" order="0" sideWeight="0.49867374" weight="0.32928804" />
@@ -879,10 +1193,15 @@
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info anchor="right" id="Database" order="6" weight="0.32980332" />
+<<<<<<< HEAD
       <window_info anchor="right" id="Maven Projects" order="7" visible="true" weight="0.07248322" />
       <window_info anchor="right" id="Coverage" order="8" sideWeight="0.50132626" side_tool="true" weight="0.32928804" />
       <window_info anchor="right" id="Capture Analysis" order="9" />
       <window_info anchor="right" id="Theme Preview" order="10" />
+=======
+      <window_info anchor="right" id="Maven Projects" order="7" weight="0.32928804" />
+      <window_info anchor="right" id="Coverage" order="8" sideWeight="0.50132626" side_tool="true" weight="0.32928804" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -934,6 +1253,7 @@
           </properties>
           <option name="timeStamp" value="82" />
         </line-breakpoint>
+<<<<<<< HEAD
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/ProductInventoryService.java</url>
           <line>77</line>
@@ -942,6 +1262,8 @@
           </properties>
           <option name="timeStamp" value="87" />
         </line-breakpoint>
+=======
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/customerinvoice/CustomerInvoice.java</url>
           <line>56</line>
@@ -949,6 +1271,7 @@
           <option name="timeStamp" value="61" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
+<<<<<<< HEAD
           <url>file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/ProductInventoryService.java</url>
           <line>86</line>
           <properties />
@@ -1004,12 +1327,22 @@
         <watch expression="entry" />
       </configuration>
     </watches-manager>
+=======
+          <url>file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/customerinvoice/CustomerInvoiceService.java</url>
+          <line>45</line>
+          <properties />
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/stock/StockLogRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1046,12 +1379,58 @@
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.0.7.RELEASE/spring-webmvc-5.0.7.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.0.7.RELEASE/spring-webmvc-5.0.7.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/customer/CustomerRepository.java">
+=======
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="390" column="46" selection-start-line="390" selection-start-column="46" selection-end-line="390" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/resource/stock/StockLogResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mockito/mockito-core/2.15.0/mockito-core-2.15.0.jar!/org/mockito/Mockito.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="74" column="21" selection-start-line="74" selection-start-column="21" selection-end-line="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/jbnsoft/inventory/service/ProductInventoryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.7.RELEASE/spring-web-5.0.7.RELEASE.jar!/org/springframework/web/bind/annotation/RequestParam.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.9.6/jackson-databind-2.9.6.jar!/com/fasterxml/jackson/databind/ser/BeanSerializer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/stock/StockLogRepository.java">
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.7.RELEASE/spring-web-5.0.7.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/ProcessOrderFactory.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/ProcessOrderUtil.java" />
@@ -1090,11 +1469,46 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
+=======
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.0.7.RELEASE/spring-webmvc-5.0.7.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/ServletInvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.9.6/jackson-databind-2.9.6.jar!/com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="496" column="5" lean-forward="true" selection-start-line="496" selection-start-column="5" selection-end-line="496" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.9.6/jackson-databind-2.9.6.jar!/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="357" selection-start-line="357" selection-end-line="357" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/jbnsoft/inventory/resource/CustomerResourceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/jbnsoft/inventory/ProductResouceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="833">
           <caret line="49" column="19" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
         </state>
@@ -1111,6 +1525,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+=======
+        <state relative-caret-position="51">
+          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-orm/5.0.7.RELEASE/spring-orm-5.0.7.RELEASE.jar!/org/springframework/orm/jpa/vendor/SpringHibernateJpaPersistenceProvider.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/2.0.8.RELEASE/spring-data-commons-2.0.8.RELEASE.jar!/org/springframework/data/repository/CrudRepository.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/customerinvoice/CustomerInvoiceRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/product/Product.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-85">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
         </state>
       </provider>
     </entry>
@@ -1121,15 +1567,23 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/customerinvoice/ICustomerInvoiceService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/stock/ProductInventoryRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/stock/StockLog.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="153">
           <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="13" />
         </state>
@@ -1227,19 +1681,139 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+=======
+        <state relative-caret-position="90">
+          <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/Inventory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/customer/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/stock/ProductInventory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/resource/customerinvoice/CustomerInvoiceResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/customerinvoice/ProductOrder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="54" column="30" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.0.7.RELEASE/spring-webmvc-5.0.7.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="570" selection-start-line="570" selection-end-line="570" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.0.7.RELEASE/spring-webmvc-5.0.7.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="485" selection-start-line="485" selection-end-line="485" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/customer/CustomerRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.7.RELEASE/spring-web-5.0.7.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="129" selection-start-line="129" selection-end-line="129" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/customerinvoice/Transaction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/ProcessOrderFactory.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/repository/customerinvoice/CustomerInvoice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1105">
+          <caret line="89" column="28" selection-start-line="89" selection-start-column="28" selection-end-line="89" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/ProcessOrderUtil.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/CreateOrder.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/DeleteOrder.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/helper/UpdateOrder.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/customer/CustomerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-119">
+          <caret line="33" column="76" lean-forward="true" selection-start-line="33" selection-start-column="76" selection-end-line="33" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/IProductInventoryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="22" column="29" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/IStockLogService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/StockLogService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/resource/customer/CustomerResource.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="17">
           <caret line="11" column="20" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="29" />
+=======
+        <state relative-caret-position="221">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/utilities/ProductInventoryUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="321">
@@ -1296,6 +1870,83 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="881" selection-start-line="881" selection-end-line="881" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/resource/product/ProductResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/customer/ICustomerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/customerinvoice/ICustomerInvoiceService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/product/IProductService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/product/ProductService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="20" column="43" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/resource/stock/ProductInventoryResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/utilities/ProcessOrderUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="92" column="47" lean-forward="true" selection-start-line="92" selection-start-column="47" selection-end-line="92" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/ProductInventoryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="77" column="16" selection-start-line="77" selection-start-column="16" selection-end-line="77" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2110#2111#0" expanded="true" />
+            <element signature="e#2167#2168#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/customerinvoice/CustomerInvoiceService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-145">
+          <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jbnsoft/inventory/sevice/stock/utilities/ProductInventoryUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+>>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
         </state>
       </provider>
     </entry>

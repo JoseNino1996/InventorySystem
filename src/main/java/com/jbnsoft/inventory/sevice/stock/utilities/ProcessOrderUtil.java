@@ -25,6 +25,7 @@ public  class ProcessOrderUtil {
 
              productInventory = productInventoryMap.get(entry.getKey());
 
+
             productInventory.setQuantity(productInventory.getQuantity() - entry.getValue());
 
             productInventoryList.add(productInventory);
@@ -61,7 +62,6 @@ public  class ProcessOrderUtil {
 
 
     }
-
     public  void updateOrder(Map<Long, Long> productIdAndOrderedQuantity) {
 
         List<ProductInventory> productInventoryList = new ArrayList<>();

@@ -79,15 +79,16 @@ public class ProductInventoryService implements IProductInventoryService {
         List<ProductOrder>  newOrders =  productOrders[0];
 
         Map<Long,ProductInventory> mappedProductInventory = ProductInventoryUtil.getMappedProductInventory(findAll());
+
         Map<Long, Long> mappedProductIdAndOrderedQuantity = ProductInventoryUtil.getMappedProductIdAndOrderQuantity(newOrders,mappedProductInventory);
 
         if(transactionType.equals(Transaction.CREATE.getTransactionType())) {
 
-            processOrderUtil.createOrder(mappedProductIdAndOrderedQuantity, mappedProductInventory);
+            processOrderUtil.createOrder(mappedProductIdAndOrderedQuantity);
 
         }else if(transactionType.equals(Transaction.DELETE.getTransactionType())) {
 
-            processOrderUtil.deleteOrder(mappedProductIdAndOrderedQuantity,mappedProductInventory);
+            processOrderUtil.deleteOrder(mappedProductIdAndOrderedQuantity);
 
         } else if (transactionType.equals(Transaction.UPDATE.getTransactionType())){
             List<ProductOrder> currentOrders = productOrders[1];
@@ -105,7 +106,7 @@ public class ProductInventoryService implements IProductInventoryService {
         Map<Long,Long> existingProductIdAndOrderQuantity = ProductInventoryUtil.getMappedProductIdAndOrderQuantity(currentOrders, mappedProductInventory);
 
         processOrderUtil.setCurrentProductIdAndOrderedQuantity(existingProductIdAndOrderQuantity);
-        processOrderUtil.updateOrder(productIdAndOrderedQuantity,mappedProductInventory);
+        processOrderUtil.updateOrder(productIdAndOrderedQuantity);
 
     }
 

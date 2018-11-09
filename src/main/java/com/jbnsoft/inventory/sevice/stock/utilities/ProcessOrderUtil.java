@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @Component
@@ -16,34 +17,40 @@ public  class ProcessOrderUtil {
     private Map<Long, Long> currentProductIdAndOrderedQuantity;
 
     private ProductInventory productInventory;
-
-
-    public  void createOrder(Map<Long, Long> productIdAndOrderedQty,
-                                   Map<Long, ProductInventory> mappedProductInventory) {
-
+    private Map<Long,ProductInventory> productInventoryMap;
+    public  void createOrder(Map<Long, Long> productIdAndOrderedQty) {
         List<ProductInventory> productInventoryList = new ArrayList<>();
-
+        loadProductInventories();
         for (Map.Entry<Long, Long> entry : productIdAndOrderedQty.entrySet()) {
 
-          ProductInventory productInventory = mappedProductInventory.get(entry.getKey());
+             productInventory = productInventoryMap.get(entry.getKey());
 
             productInventory.setQuantity(productInventory.getQuantity() - entry.getValue());
 
             productInventoryList.add(productInventory);
 
         }
+
+
         productInventoryService.saveAll(productInventoryList);
 
     }
+    private void loadProductInventories() {
+        if(productInventoryMap == null) {
+            productInventoryMap = new HashMap<>();
+            for (ProductInventory productInventory : productInventoryService.findAll()) {
+                productInventoryMap.put(productInventory.getId(), productInventory);
+            }
+        }
+    }
 
-    public  void deleteOrder(Map<Long, Long> productIdAndOrderedQty,
-                                   Map<Long,ProductInventory> mappedProductInventory) {
+    public  void deleteOrder(Map<Long, Long> productIdAndOrderedQty) {
 
         List<ProductInventory> productInventoryList = new ArrayList<>();
-
+        loadProductInventories();
         for(Map.Entry<Long, Long> entry : productIdAndOrderedQty.entrySet()) {
 
-            ProductInventory productInventory = mappedProductInventory.get(entry.getKey());
+            ProductInventory productInventory = productInventoryMap.get(entry.getKey());
 
             productInventory.setQuantity(productInventory.getQuantity() + entry.getValue());
 
@@ -55,15 +62,14 @@ public  class ProcessOrderUtil {
 
     }
 
-    public  void updateOrder(Map<Long, Long> productIdAndOrderedQuantity,
-                             Map<Long, ProductInventory> mappedProductInventory) {
+    public  void updateOrder(Map<Long, Long> productIdAndOrderedQuantity) {
 
         List<ProductInventory> productInventoryList = new ArrayList<>();
-
+        loadProductInventories();
         for(Map.Entry<Long, Long> entry : productIdAndOrderedQuantity.entrySet()) {
             long orderQuantity = entry.getValue();
 
-            productInventory = mappedProductInventory.get( entry.getKey() );
+             productInventory = productInventoryMap.get( entry.getKey() );
             Long currentOrderQuantity = currentProductIdAndOrderedQuantity.get(productInventory.getProduct().getId());
 
             if(isCurrentOrderQuantityNotNull(currentOrderQuantity)) {

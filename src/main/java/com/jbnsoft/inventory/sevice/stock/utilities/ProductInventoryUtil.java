@@ -18,7 +18,8 @@ public  final  class ProductInventoryUtil {
         Map<Long,ProductInventory> mappedProductInventory = new HashMap<>();
 
         for(ProductInventory productInventory : productInventoryList) {
-            mappedProductInventory.put(productInventory.getProduct().getId(),productInventory);
+         mappedProductInventory.put(productInventory.getProduct().getId(),productInventory);
+
         }
         return  mappedProductInventory;
     }

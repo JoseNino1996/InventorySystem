@@ -37,11 +37,10 @@ public  class ProcessOrderUtil {
 
     }
     private void loadProductInventories() {
-        if(productInventoryMap == null) {
             productInventoryMap = new HashMap<>();
             for (ProductInventory productInventory : productInventoryService.findAll()) {
                 productInventoryMap.put(productInventory.getId(), productInventory);
-            }
+
         }
     }
 
@@ -75,7 +74,7 @@ public  class ProcessOrderUtil {
             if(isCurrentOrderQuantityNotNull(currentOrderQuantity)) {
                 processCurrentOrderQuantity(orderQuantity, currentOrderQuantity);
             }else {
-                productInventory.setQuantity(orderQuantity - productInventory.getQuantity());
+                productInventory.setQuantity(productInventory.getQuantity() - orderQuantity  );
             }
 
             productInventoryList.add(productInventory);

@@ -55,9 +55,6 @@ public class CustomerInvoice {
 
 
     public double getAmountDue() {
-        for(ProductOrder productOrder : getProductOrderList()) {
-            amountDue += productOrder.getPrice() * productOrder.getOrderedQty() ;
-        }
 
         return amountDue;
     }

@@ -6,11 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-<<<<<<< HEAD
         <module name="inventory-program" />
-=======
->>>>>>> e80cbd87336bd24cea8622b6165cfcc794e318dc
-        <module name="inventoryprogram" />
       </profile>
     </annotationProcessing>
   </component>
